@@ -172,10 +172,11 @@
             Fill out the form below and we'll get back to you within 24 hours.
           </p>
           
-         <form id="contactForm" action="#" method="POST">
-  <div class="form-row">
-    <div class="form-group">
-      <label for="firstName">First Name *</label>
+          <!-- Formspree-powered form -->
+          <form id="contactForm" action="https://formspree.io/f/meerjvzg" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
                 <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
               </div>
               <div class="form-group">
@@ -462,33 +463,6 @@
         top: 0,
         behavior: 'smooth'
       });
-    });
-    
-    // Contact Form Handling
-    const contactForm = document.getElementById('contactForm');
-
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData);
-
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          alert('Thank you for your message! We will get back to you within 24 hours.');
-          contactForm.reset();
-        } else {
-          alert('Sorry, something went wrong. Please try again.');
-        }
-      } catch (err) {
-        alert('Network error. Please try again.');
-      }
     });
   </script>
 </body>
