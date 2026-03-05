@@ -64,13 +64,20 @@ export default async function handler(req, res) {
       }),
     });
 
+    const bodyText = await response.text();
+    console.log('Resend raw response:', response.status, bodyText);
+
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Resend error:', response.status, errorText);
       return res.status(500).json({ error: 'Failed to send email' });
     }
 
-    const data = await response.json();
+    let data = {};
+    try {
+      data = JSON.parse(bodyText);
+    } catch (e) {
+      data = { raw: bodyText };
+    }
+
     console.log('Resend email sent:', data);
 
     return res.status(200).json({ ok: true });
