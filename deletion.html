@@ -1,93 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Deletion Request | HealthBridge Solutions</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .deletion-wrapper {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 16px;
-            background: #f5f7fb;
-        }
-        .deletion-card {
-            max-width: 640px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 32px 28px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-            border: 1px solid #e2e8f0;
-        }
-        .deletion-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: #eff6ff;
-            color: #1d4ed8;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 10px;
-        }
-        .deletion-badge span.icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            border-radius: 999px;
-            background: #1d4ed8;
-            color: #ffffff;
-            font-size: 12px;
-        }
-        .deletion-card h1 {
-            font-size: 26px;
-            margin: 4px 0 12px;
-            color: #0f172a;
-        }
-        .deletion-card p.lead {
-            font-size: 15px;
-            color: #475569;
-            margin-bottom: 18px;
-        }
-        .deletion-card p {
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 10px;
-            line-height: 1.55;
-        }
-        .deletion-card a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .deletion-card a:hover {
-            text-decoration: underline;
-        }
-        .deletion-highlight {
-            padding: 10px 12px;
-            border-radius: 8px;
-            background: #f1f5f9;
-            font-size: 13px;
-            color: #475569;
-            margin-top: 6px;
-        }
-        @media (max-width: 640px) {
-            .deletion-card {
-                padding: 24px 18px;
-            }
-            .deletion-card h1 {
-                font-size: 22px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>HealthBridge Solutions | Healthcare Automation & AI Solutions in Kenya</title>
+  <meta name="description" content="HealthBridge Solutions - Bridging Healthcare and Technology. AI-powered automation, voice agents, SMS systems, and digital workflow optimization for hospitals and clinics in Kenya.">
+  <meta name="keywords" content="healthcare automation, AI healthcare, hospital management system, medical software Kenya, healthcare technology, OPD automation, WhatsApp healthcare, voice agents, SMS automation">
+  <meta name="author" content="HealthBridge Solutions">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://healthbridgesolutions.net">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://healthbridgesolutions.net">
+  <meta property="og:title" content="HealthBridge Solutions | Healthcare Automation & AI Solutions">
+  <meta property="og:description" content="Bridging Healthcare and Technology. AI-powered automation systems for hospitals and clinics in Kenya.">
+  <meta property="og:image" content="https://healthbridgesolutions.net/assets/og-image.jpg">
+  <meta property="og:site_name" content="HealthBridge Solutions">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://healthbridgesolutions.net">
+  <meta property="twitter:title" content="HealthBridge Solutions | Healthcare Automation & AI Solutions">
+  <meta property="twitter:description" content="Bridging Healthcare and Technology. AI-powered automation systems for hospitals and clinics in Kenya.">
+  <meta property="twitter:image" content="https://healthbridgesolutions.net/assets/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231A56DB' width='100' height='100' rx='15'/%3E%3Cpath fill='white' d='M50 25 L65 40 L55 40 L55 75 L45 75 L45 40 L35 40 Z'/%3E%3Ccircle fill='%23F97316' cx='75' cy='30' r='12'/%3E%3C/svg%3E">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "HealthBridge Solutions",
+    "url": "https://healthbridgesolutions.net",
+    "logo": "https://healthbridgesolutions.net/assets/logo.png",
+    "description": "Healthcare automation company offering AI-powered systems, voice agents, SMS automation, and digital workflow optimization for hospitals and clinics in Kenya.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Athi River",
+      "addressLocality": "Machakos",
+      "addressCountry": "KE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+254795822310",
+      "contactType": "customer service",
+      "email": "admin@healthbridgesolutions.net"
+    },
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
     <!-- Simple nav bar (optional: adjust to match your other pages) -->
