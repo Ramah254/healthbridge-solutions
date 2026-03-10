@@ -5,9 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Deletion Request | HealthBridge Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .deletion-wrapper {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 16px;
+            background: #f5f7fb;
+        }
+        .deletion-card {
+            max-width: 640px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+        .deletion-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+        }
+        .deletion-badge span.icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            background: #1d4ed8;
+            color: #ffffff;
+            font-size: 12px;
+        }
+        .deletion-card h1 {
+            font-size: 26px;
+            margin: 4px 0 12px;
+            color: #0f172a;
+        }
+        .deletion-card p.lead {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 18px;
+        }
+        .deletion-card p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 10px;
+            line-height: 1.55;
+        }
+        .deletion-card a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .deletion-card a:hover {
+            text-decoration: underline;
+        }
+        .deletion-highlight {
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            font-size: 13px;
+            color: #475569;
+            margin-top: 6px;
+        }
+        @media (max-width: 640px) {
+            .deletion-card {
+                padding: 24px 18px;
+            }
+            .deletion-card h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header / Navigation -->
+    <!-- Simple nav bar (optional: adjust to match your other pages) -->
     <header class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
@@ -25,45 +108,25 @@
         </div>
     </header>
 
-    <!-- Main content -->
-    <main class="page-section">
-        <div class="container">
+    <main class="deletion-wrapper">
+        <section class="deletion-card">
+            <div class="deletion-badge">
+                <span class="icon">i</span>
+                <span>Account & privacy</span>
+            </div>
             <h1>User Data Deletion</h1>
-            <p>
-                If you have an account with HealthBridge Solutions or have shared personal information with us,
-                you can request that we delete your data at any time.
+            <p class="lead">
+                You can request deletion of your personal data from HealthBridge Solutions at any time.
             </p>
             <p>
-                To request deletion, please send an email to
+                To request deletion, email
                 <a href="mailto:admin@healthbridgesolutions.net">admin@healthbridgesolutions.net</a>
-                from the email address you used with our services, with the subject line
+                from the same email address you used with our services, using the subject line
                 <strong>“Data Deletion Request”</strong>.
             </p>
             <p>
-                In your message, include your full name, the phone number or email you used with us,
-                and a brief note that you want your data deleted.
+                In your message, include your full name and the phone number or email associated with your account.
             </p>
-            <p>
-                We will verify your identity and respond to your request. In most cases, your data will be deleted,
-                except where we are required to keep certain information for legal, regulatory, or security reasons.
-            </p>
-            <p>
-                If you have any questions before making a deletion request, you can also contact us at
-                <a href="mailto:admin@healthbridgesolutions.net">admin@healthbridgesolutions.net</a>.
-            </p>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>© 2026 HealthBridge Solutions. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="deletion.html">Data Deletion</a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+            <div class="deletion-highlight">
+                We will verify your identity and confirm once your data has been deleted, except where we must retain
+                certain information for legal, regulatory, or security
