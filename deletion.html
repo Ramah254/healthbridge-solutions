@@ -1,127 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Deletion Request | HealthBridge Solutions</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .deletion-wrapper {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 16px;
-            background: #f5f7fb;
-        }
-        .deletion-card {
-            max-width: 640px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 32px 28px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-            border: 1px solid #e2e8f0;
-        }
-        .deletion-card h1 {
-            font-size: 24px;
-            margin: 0 0 12px;
-            color: #0f172a;
-        }
-        .deletion-card p.lead {
-            font-size: 15px;
-            color: #475569;
-            margin-bottom: 16px;
-        }
-        .deletion-card p {
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 10px;
-            line-height: 1.55;
-        }
-        .deletion-card a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .deletion-card a:hover {
-            text-decoration: underline;
-        }
-        .deletion-highlight {
-            padding: 10px 12px;
-            border-radius: 8px;
-            background: #f1f5f9;
-            font-size: 13px;
-            color: #475569;
-            margin-top: 6px;
-        }
-        .logo img {
-            max-height: 32px;
-        }
-        .logo span {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        @media (max-width: 640px) {
-            .deletion-card {
-                padding: 24px 18px;
-            }
-            .deletion-card h1 {
-                font-size: 20px;
-            }
-        }
-    </style>
+  <title>Data Deletion Request | HealthBridge Solutions</title>
+  <meta name="description" content="Request deletion of your personal data from HealthBridge Solutions. Simple, secure process for removing your information from our records.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://healthbridgesolutions.net/deletion.html">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231A56DB' width='100' height='100' rx='15'/%3E%3Cpath fill='white' d='M50 25 L65 40 L55 40 L55 75 L45 75 L45 40 L35 40 Z'/%3E%3Ccircle fill='%23F97316' cx='75' cy='30' r='12'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <!-- Header copied from your other pages -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="HealthBridge Solutions Logo">
-                <span>HealthBridge Solutions</span>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-            </nav>
-        </div>
-    </header>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-item"><i class="fas fa-phone-alt"></i> <a href="tel:+254795822310">+254 795 822 310</a></span>
+      <span class="topbar-item topbar-hide-mobile"><i class="fas fa-envelope"></i> <a href="mailto:admin@healthbridgesolutions.net">admin@healthbridgesolutions.net</a></span>
+      <span class="topbar-item topbar-hide-mobile"><i class="fas fa-map-marker-alt"></i> Athi River, Machakos</span>
+    </div>
+  </div>
 
-    <main class="deletion-wrapper">
-        <section class="deletion-card">
-            <h1>User Data Deletion</h1>
-            <p class="lead">
-                You can request deletion of your personal data from HealthBridge Solutions at any time.
-            </p>
-            <p>
-                To request deletion, email
-                <a href="mailto:admin@healthbridgesolutions.net">admin@healthbridgesolutions.net</a>
-                from the same email address you used with our services, using the subject line
-                <strong>“Data Deletion Request”</strong>.
-            </p>
-            <p>
-                In your message, include your full name and the phone number or email associated with your account.
-            </p>
-            <div class="deletion-highlight">
-                We will verify your identity and confirm once your data has been deleted, except where we must retain
-                certain information for legal, regulatory, or security reasons.
-            </div>
-        </section>
-    </main>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="HealthBridge Solutions Logo" class="logo-img">
+        <span class="logo-text">HealthBridge <span>Solutions</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="opd.html" class="nav-link">OPD System</a></li>
+        <li><a href="mch.html" class="nav-link">MCH System</a></li>
+        <li><a href="results.html" class="nav-link">Results</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav-cta"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
 
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>© 2026 HealthBridge Solutions. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="deletion.html">Data Deletion</a>
-            </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="opd.html" class="nav-link">OPD System</a>
+    <a href="mch.html" class="nav-link">MCH System</a>
+    <a href="results.html" class="nav-link">Results</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+  </div>
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Data Deletion Request</h1>
+      <p>How to request deletion of your personal data from HealthBridge Solutions.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="legal-content">
+        <div class="legal-section">
+          <p>
+            You can request deletion of your personal data from HealthBridge Solutions at any time.
+            We take these requests seriously and will process them promptly.
+          </p>
         </div>
-    </footer>
+
+        <div class="legal-section">
+          <h2>How to request deletion</h2>
+          <p>
+            Email us at <a href="mailto:admin@healthbridgesolutions.net">admin@healthbridgesolutions.net</a>
+            from the same email address you used with our services, using the subject line
+            <strong>"Data Deletion Request"</strong>.
+          </p>
+          <p>
+            In your message, please include:
+          </p>
+          <ul>
+            <li>Your full name</li>
+            <li>The phone number or email associated with your account</li>
+            <li>The name of the facility (if you are a hospital staff member)</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>What happens next</h2>
+          <p>
+            We will verify your identity and confirm once your data has been deleted &mdash; usually
+            within five business days. We may need to retain certain information for legal,
+            regulatory, or security reasons, in which case we will explain what is being kept
+            and why.
+          </p>
+        </div>
+
+        <div class="legal-last-updated">
+          <p><i class="fas fa-info-circle"></i> Prefer to talk to a human? Message us on WhatsApp at <a href="https://wa.me/254795822310">+254 795 822 310</a> or call us during business hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="logo.png" alt="HealthBridge Solutions Logo" class="logo-img">
+            <span class="logo-text">HealthBridge <span>Solutions</span></span>
+          </a>
+          <p>Patient retention systems for private hospitals in Kenya. MCH and OPD solutions that keep patients coming back.</p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/profile.php?id=61581318789656" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/healthbridgesolutionsnet/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/254795822310" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Systems</h4>
+          <ul>
+            <li><a href="opd.html">OPD System</a></li>
+            <li><a href="mch.html">MCH System</a></li>
+            <li><a href="results.html">Results</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Talk to us</h4>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Athi River, Machakos, Kenya<br>P.O. Box 23 - 90100</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:+254795822310">+254 795 822 310</a></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:admin@healthbridgesolutions.net">admin@healthbridgesolutions.net</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 HealthBridge Solutions. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="deletion.html">Data Deletion</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/254795822310" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuToggle.addEventListener('click', () => { mobileMenuToggle.classList.toggle('active'); mobileMenu.classList.toggle('active'); });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { mobileMenuToggle.classList.remove('active'); mobileMenu.classList.remove('active'); }));
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 500));
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>
