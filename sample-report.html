@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sample Monthly Retention Report | HealthBridge Solutions</title>
+  <meta name="description" content="A sample of the monthly retention report HealthBridge sends to hospital owners. Real format, illustrative numbers from a fictional facility.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://healthbridgesolutions.net/sample-report.html">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231A56DB' width='100' height='100' rx='15'/%3E%3Cpath fill='white' d='M50 25 L65 40 L55 40 L55 75 L45 75 L45 40 L35 40 Z'/%3E%3Ccircle fill='%23F97316' cx='75' cy='30' r='12'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --blue: #1A56DB;
+      --blue-dark: #1E429F;
+      --blue-light: #E1EFFE;
+      --orange: #F97316;
+      --orange-dark: #EA580C;
+      --orange-light: #FFEDD5;
+      --green: #16A34A;
+      --green-light: #DCFCE7;
+      --red: #DC2626;
+      --red-light: #FEE2E2;
+      --text: #111827;
+      --text-medium: #4B5563;
+      --text-light: #6B7280;
+      --border: #E5E7EB;
+      --bg-soft: #F9FAFB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+      background-color: #E5E7EB;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* On-screen "preview" frame */
+    .preview-banner {
+      background: var(--text);
+      color: #fff;
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .preview-banner strong { color: #FCD34D; }
+    .preview-banner a { color: #fff; text-decoration: underline; }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #fff;
+      padding: 20mm 18mm;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: relative;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+    .page:last-of-type { page-break-after: auto; }
+
+    /* Report header (top of each page) */
+    .report-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--blue);
+      margin-bottom: 28px;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--blue);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .brand-mark-text {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .brand-mark-text span { color: var(--blue); }
+    .header-tagline {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* Title block (page 1) */
+    .title-block {
+      margin-bottom: 32px;
+    }
+    .title-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .title-block h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .title-meta {
+      display: flex;
+      gap: 32px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .title-meta-item {
+      font-size: 12px;
+    }
+    .title-meta-label {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .title-meta-value {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* Executive summary */
+    .exec-summary {
+      background: var(--bg-soft);
+      border-left: 4px solid var(--blue);
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      border-radius: 0 6px 6px 0;
+    }
+    .exec-summary-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .exec-summary p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    /* Headline stats grid */
+    .headline-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-tile {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      position: relative;
+    }
+    .stat-tile-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .stat-tile-value {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-tile-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 50px;
+    }
+    .stat-tile-trend.up {
+      background: var(--green-light);
+      color: var(--green);
+    }
+    .stat-tile-trend.down {
+      background: var(--green-light);
+      color: var(--green);
+    }
+    .stat-tile-trend.flat {
+      background: var(--border);
+      color: var(--text-medium);
+    }
+    .stat-tile-context {
+      font-size: 12px;
+      color: var(--text-medium);
+      margin-top: 6px;
+    }
+
+    /* Narrative section */
+    .narrative {
+      margin-bottom: 28px;
+    }
+    .narrative h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .narrative p {
+      color: var(--text-medium);
+      font-size: 13.5px;
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .narrative p:last-child { margin-bottom: 0; }
+
+    /* Section heading (used on pages 2/3) */
+    .section-heading {
+      margin-bottom: 22px;
+    }
+    .section-heading .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .section-heading h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .section-heading p {
+      color: var(--text-medium);
+      font-size: 13px;
+    }
+
+    /* Metric table */
+    .metric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+    .metric-table thead {
+      background: var(--bg-soft);
+    }
+    .metric-table th {
+      text-align: left;
+      padding: 12px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-light);
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+    .metric-table th.num,
+    .metric-table td.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .metric-table tr:last-child td {
+      border-bottom: 0;
+    }
+    .metric-name {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 13.5px;
+      margin-bottom: 2px;
+    }
+    .metric-desc {
+      color: var(--text-light);
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+    .metric-this {
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--text);
+    }
+    .metric-last {
+      color: var(--text-medium);
+      font-size: 14px;
+    }
+    .change-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 50px;
+      font-variant-numeric: tabular-nums;
+    }
+    .change-pill.good {
+      background: var(--green-light);
+      color: var(--green);
+    }
+    .change-pill.bad {
+      background: var(--red-light);
+      color: var(--red);
+    }
+    .change-pill.neutral {
+      background: var(--border);
+      color: var(--text-medium);
+    }
+    .metric-note {
+      font-size: 11.5px;
+      color: var(--text-medium);
+      line-height: 1.4;
+      max-width: 280px;
+    }
+
+    /* Action items */
+    .actions-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .action-card {
+      display: flex;
+      gap: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--orange);
+      border-radius: 0 8px 8px 0;
+      background: #fff;
+    }
+    .action-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--orange);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .action-body h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .action-body p {
+      color: var(--text-medium);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    /* Founder sign-off */
+    .signoff {
+      margin-top: auto;
+      padding: 18px 20px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .signoff-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .signoff-content {
+      flex: 1;
+    }
+    .signoff-content p {
+      font-size: 12.5px;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+    .signoff-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .signoff-role {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* CTA panel (last page) */
+    .cta-panel {
+      margin-top: 24px;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: #fff;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .cta-panel h3 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .cta-panel p {
+      font-size: 13px;
+      opacity: 0.92;
+      margin-bottom: 16px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12.5px;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .cta-btn-primary {
+      background: var(--orange);
+      color: #fff;
+    }
+    .cta-btn-secondary {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .cta-btn:hover { transform: translateY(-1px); }
+
+    /* Page footer */
+    .page-footer {
+      margin-top: 22px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--text-light);
+    }
+    .page-footer a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* Confidentiality note */
+    .conf-note {
+      font-size: 10.5px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 14px;
+      font-style: italic;
+    }
+
+    /* Print styles — clean PDF output */
+    @media print {
+      body { background: #fff; font-size: 13px; }
+      .preview-banner { display: none; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        padding: 18mm 16mm;
+      }
+      .page:last-of-type { page-break-after: auto; }
+      @page { size: A4; margin: 0; }
+    }
+
+    @media (max-width: 800px) {
+      .page {
+        width: auto;
+        margin: 12px;
+        padding: 24px 20px;
+      }
+      .headline-stats { grid-template-columns: 1fr; }
+      .title-meta { flex-direction: column; gap: 12px; }
+      .metric-table { font-size: 12px; }
+      .metric-table th, .metric-table td { padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-banner">
+    <strong>SAMPLE REPORT.</strong> This is the format and detail level your hospital would receive every month.
+    Numbers below are illustrative, from a fictional facility. &nbsp; <a href="contact.html">See yours &rarr;</a>
+  </div>
+
+  <!-- ============== PAGE 1: COVER + SUMMARY ============== -->
+  <section class="page">
+    <div class="report-header">
+      <div class="brand-mark">
+        <div class="brand-mark-icon">H</div>
+        <div class="brand-mark-text">HealthBridge <span>Solutions</span></div>
+      </div>
+      <div class="header-tagline">Monthly Retention Report</div>
+    </div>
+
+    <div class="title-block">
+      <div class="title-eyebrow">Patient Retention Report</div>
+      <h1>How your patients moved this month.</h1>
+      <div class="title-meta">
+        <div class="title-meta-item">
+          <div class="title-meta-label">Facility</div>
+          <div class="title-meta-value">Mama Wanjiku Maternity Hospital</div>
+        </div>
+        <div class="title-meta-item">
+          <div class="title-meta-label">Reporting Period</div>
+          <div class="title-meta-value">April 2026</div>
+        </div>
+        <div class="title-meta-item">
+          <div class="title-meta-label">Prepared for</div>
+          <div class="title-meta-value">Dr. Jane Mwangi, Medical Director</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-summary">
+      <div class="exec-summary-label">In one sentence</div>
+      <p>
+        A strong month overall &mdash; OPD returning rate climbed to 54%, ANC completion broke
+        80% for the first time, and the &ldquo;slipping away&rdquo; list shrank by 15 patients.
+        Immunisations are flat and worth a closer look.
+      </p>
+    </div>
+
+    <div class="headline-stats">
+      <div class="stat-tile">
+        <div class="stat-tile-label">OPD Returning Rate</div>
+        <div class="stat-tile-value">54%</div>
+        <span class="stat-tile-trend up"><i class="fas fa-arrow-up"></i> +3 pts vs March</span>
+        <div class="stat-tile-context">Baseline before HealthBridge: 38%</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-tile-label">ANC Completion</div>
+        <div class="stat-tile-value">81%</div>
+        <span class="stat-tile-trend up"><i class="fas fa-arrow-up"></i> +5 pts vs March</span>
+        <div class="stat-tile-context">Baseline before HealthBridge: 58%</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-tile-label">No-Show Rate</div>
+        <div class="stat-tile-value">11%</div>
+        <span class="stat-tile-trend down"><i class="fas fa-arrow-down"></i> &minus;3 pts vs March</span>
+        <div class="stat-tile-context">Baseline before HealthBridge: 26%</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-tile-label">Immunisation Coverage</div>
+        <div class="stat-tile-value">87%</div>
+        <span class="stat-tile-trend flat"><i class="fas fa-minus"></i> Flat vs March</span>
+        <div class="stat-tile-context">Plateaued for two months &mdash; see Page 3</div>
+      </div>
+    </div>
+
+    <div class="narrative">
+      <h2>What changed this month</h2>
+      <p>
+        The OPD reminder cadence we adjusted in February is now compounding. Returning patients
+        are up 3 points month-over-month and the no-show rate dropped to its lowest level since
+        we started measuring. Most of the gain came from second and third visits &mdash; not first
+        returns &mdash; which suggests deeper retention is taking hold, not just front-of-funnel response.
+      </p>
+      <p>
+        On MCH, ANC completion crossed 80% for the first time. The mothers who completed the
+        full schedule this month are concentrated in the cohort enrolled in January &mdash; another
+        sign the system performs better the longer it runs with a given group.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <span>HealthBridge Solutions &nbsp;&middot;&nbsp; Monthly Retention Report &nbsp;&middot;&nbsp; April 2026</span>
+      <span>Page 1 of 3</span>
+    </div>
+  </section>
+
+  <!-- ============== PAGE 2: FULL METRICS ============== -->
+  <section class="page">
+    <div class="report-header">
+      <div class="brand-mark">
+        <div class="brand-mark-icon">H</div>
+        <div class="brand-mark-text">HealthBridge <span>Solutions</span></div>
+      </div>
+      <div class="header-tagline">Monthly Retention Report</div>
+    </div>
+
+    <div class="section-heading">
+      <div class="eyebrow">The full picture</div>
+      <h2>Every metric we track, in one view.</h2>
+      <p>This month, last month, the change, and what it means.</p>
+    </div>
+
+    <table class="metric-table">
+      <thead>
+        <tr>
+          <th style="width: 32%">Metric</th>
+          <th class="num">This Month</th>
+          <th class="num">Last Month</th>
+          <th class="num" style="width: 12%">Change</th>
+          <th style="width: 28%">What it means</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="metric-name">OPD Returning Rate</div>
+            <div class="metric-desc">First-time patients who came back for a second visit</div>
+          </td>
+          <td class="num"><span class="metric-this">54%</span></td>
+          <td class="num"><span class="metric-last">51%</span></td>
+          <td class="num"><span class="change-pill good">+3 pts</span></td>
+          <td><div class="metric-note">Climbing steadily for four months. Compounding effect of consistent follow-ups.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="metric-name">No-Show Rate</div>
+            <div class="metric-desc">Scheduled appointments that didn't happen</div>
+          </td>
+          <td class="num"><span class="metric-this">11%</span></td>
+          <td class="num"><span class="metric-last">14%</span></td>
+          <td class="num"><span class="change-pill good">&minus;3 pts</span></td>
+          <td><div class="metric-note">Lowest since we started. Reminders are landing on the right channel.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="metric-name">ANC Completion Rate</div>
+            <div class="metric-desc">Expectant mothers who completed their full ANC schedule</div>
+          </td>
+          <td class="num"><span class="metric-this">81%</span></td>
+          <td class="num"><span class="metric-last">76%</span></td>
+          <td class="num"><span class="change-pill good">+5 pts</span></td>
+          <td><div class="metric-note">First month above 80%. January cohort drove most of the gain.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="metric-name">Immunisation Coverage</div>
+            <div class="metric-desc">Children in your patient base on schedule for immunisations</div>
+          </td>
+          <td class="num"><span class="metric-this">87%</span></td>
+          <td class="num"><span class="metric-last">86%</span></td>
+          <td class="num"><span class="change-pill neutral">+1 pt</span></td>
+          <td><div class="metric-note">Plateau. Pentavalent-3 doses are the slowest moving &mdash; flagged for review.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="metric-name">PNC Follow-up Reach</div>
+            <div class="metric-desc">New mothers who engaged with post-natal check-ins in first 6 weeks</div>
+          </td>
+          <td class="num"><span class="metric-this">74%</span></td>
+          <td class="num"><span class="metric-last">68%</span></td>
+          <td class="num"><span class="change-pill good">+6 pts</span></td>
+          <td><div class="metric-note">Strongest single-month jump. New PNC message timing is working.</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="metric-name">Patients Slipping Away</div>
+            <div class="metric-desc">Patients with no return visit in 60+ days</div>
+          </td>
+          <td class="num"><span class="metric-this">52</span></td>
+          <td class="num"><span class="metric-last">67</span></td>
+          <td class="num"><span class="change-pill good">&minus;15</span></td>
+          <td><div class="metric-note">Re-engagement campaign in March recovered 11 patients. Continuing in April.</div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="narrative">
+      <h2>The story behind the numbers</h2>
+      <p>
+        Three of your six metrics moved meaningfully in the right direction this month. The two
+        biggest wins &mdash; ANC completion and PNC follow-up reach &mdash; both came from MCH, suggesting
+        your maternal care pipeline is now your strongest retention engine.
+      </p>
+      <p>
+        Immunisation coverage is the one to watch. It's held above 85% for three months but
+        hasn't grown. We've broken down the data by vaccine and the bottleneck is consistent &mdash;
+        details on the next page.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <span>HealthBridge Solutions &nbsp;&middot;&nbsp; Monthly Retention Report &nbsp;&middot;&nbsp; April 2026</span>
+      <span>Page 2 of 3</span>
+    </div>
+  </section>
+
+  <!-- ============== PAGE 3: ACTIONS + SIGN-OFF ============== -->
+  <section class="page">
+    <div class="report-header">
+      <div class="brand-mark">
+        <div class="brand-mark-icon">H</div>
+        <div class="brand-mark-text">HealthBridge <span>Solutions</span></div>
+      </div>
+      <div class="header-tagline">Monthly Retention Report</div>
+    </div>
+
+    <div class="section-heading">
+      <div class="eyebrow">What we'd act on next</div>
+      <h2>Three moves for May.</h2>
+      <p>Specific, scoped, and tied to the numbers above. We'll execute and report back next month.</p>
+    </div>
+
+    <div class="actions-grid">
+      <div class="action-card">
+        <div class="action-num">1</div>
+        <div class="action-body">
+          <h3>Re-engage the 52 patients flagged as slipping away.</h3>
+          <p>
+            We'll run a soft re-engagement nudge over the next two weeks &mdash; one personalised
+            message, then a follow-up if no response. Based on March's recovery rate (16%), we'd
+            expect to recover 8 to 10 of these patients before they cross the 90-day threshold.
+          </p>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-num">2</div>
+        <div class="action-body">
+          <h3>Targeted push on Pentavalent-3 immunisations.</h3>
+          <p>
+            Pentavalent-3 is dragging your overall immunisation number. 23 children in your patient
+            base are overdue and reachable. We'll send a dedicated reminder to those families this
+            week with a follow-up call list for your MCH nurses.
+          </p>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-num">3</div>
+        <div class="action-body">
+          <h3>Replicate the January MCH cohort's success.</h3>
+          <p>
+            The January enrolment cohort is your top-performing ANC group. We'll look at what was
+            different about their onboarding (timing, message variant, nurse handover) and roll the
+            best elements into how new mothers get enrolled this month.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="signoff">
+      <div class="signoff-icon"><i class="fas fa-comment"></i></div>
+      <div class="signoff-content">
+        <p>
+          A solid month, Dr. Mwangi. The MCH gains in particular are now compounding &mdash; expect
+          ANC and PNC numbers to keep climbing if we hold the current cadence. I'll send a quick
+          call invite next week to walk through actions 1 and 2 before we execute. Anything you'd
+          like the May report to include that isn't here, just say.
+        </p>
+        <div class="signoff-name">Ramadhan Omar</div>
+        <div class="signoff-role">Founder, HealthBridge Solutions</div>
+      </div>
+    </div>
+
+    <div class="cta-panel">
+      <h3>This is what your monthly report would look like.</h3>
+      <p>
+        See HealthBridge running on real patient data &mdash; in 20 minutes. Private walkthrough
+        with the founder. No slides. No pressure.
+      </p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="cta-btn cta-btn-primary">
+          <i class="fas fa-calendar-check"></i> Book Your Walkthrough
+        </a>
+        <a href="https://wa.me/254795822310" class="cta-btn cta-btn-secondary">
+          <i class="fab fa-whatsapp"></i> Message on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <p class="conf-note">
+      Sample report &mdash; numbers and facility name are illustrative. Real reports are confidential
+      to the facility they're prepared for.
+    </p>
+
+    <div class="page-footer">
+      <span>HealthBridge Solutions &nbsp;&middot;&nbsp; Monthly Retention Report &nbsp;&middot;&nbsp; April 2026</span>
+      <span>Page 3 of 3</span>
+    </div>
+  </section>
+
+</body>
+</html>
