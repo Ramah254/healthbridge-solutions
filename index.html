@@ -90,6 +90,7 @@
     ]
   }
   </script>
+  <script defer src="enhance.js"></script>
 </head>
 <body>
   <!-- Top contact bar -->
@@ -114,6 +115,7 @@
         <li><a href="opd.html" class="nav-link">OPD System</a></li>
         <li><a href="mch.html" class="nav-link">MCH System</a></li>
         <li><a href="results.html" class="nav-link">Results</a></li>
+        <li><a href="why-patients-leave.html" class="nav-link">Resources</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
@@ -135,6 +137,7 @@
     <a href="opd.html" class="nav-link">OPD System</a>
     <a href="mch.html" class="nav-link">MCH System</a>
     <a href="results.html" class="nav-link">Results</a>
+    <a href="why-patients-leave.html" class="nav-link">Resources</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <a href="contact.html" class="btn btn-primary">Book a Demo</a>
   </div>
@@ -394,6 +397,57 @@
     </div>
   </section>
 
+  <!-- Email capture — for visitors not ready to book a demo -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="email-capture">
+        <div class="email-capture-grid">
+          <div class="email-capture-content">
+            <div class="eyebrow">Not ready for a demo?</div>
+            <h2>See what your monthly report would look like.</h2>
+            <p>
+              Drop your details below and we'll send you a real sample of the monthly retention
+              report we deliver to partner hospitals &mdash; the exact format, metrics, and
+              owner-friendly language you'd receive in your inbox each month.
+            </p>
+            <ul class="email-capture-bullets">
+              <li><i class="fas fa-check-circle"></i> No commitment, no follow-up calls</li>
+              <li><i class="fas fa-check-circle"></i> Delivered straight to your inbox</li>
+              <li><i class="fas fa-check-circle"></i> Built around a real, fictional facility</li>
+            </ul>
+          </div>
+          <div class="email-capture-form-wrap">
+            <form class="email-capture-form" id="sampleReportForm" action="https://formspree.io/f/meerjvzg" method="POST">
+              <div id="sampleReportFields">
+                <label for="srName">Your name</label>
+                <input type="text" id="srName" name="name" placeholder="Dr. Jane Wanjiku" required>
+
+                <label for="srEmail">Email address</label>
+                <input type="email" id="srEmail" name="email" placeholder="you@hospital.co.ke" required>
+
+                <label for="srFacility">Hospital or clinic name</label>
+                <input type="text" id="srFacility" name="facility" placeholder="Mama Wanjiku Maternity Hospital" required>
+
+                <input type="hidden" name="_subject" value="Sample Report Request from website">
+                <input type="hidden" name="form_source" value="email_capture_homepage">
+
+                <button type="submit">
+                  <i class="fas fa-paper-plane"></i> Send me the sample report
+                </button>
+                <p class="form-fineprint">We respect your inbox. Your details stay private.</p>
+              </div>
+              <div class="email-capture-success" id="sampleReportSuccess">
+                <i class="fas fa-circle-check"></i>
+                <h3>Sample report on its way.</h3>
+                <p>Check your inbox in the next few minutes. If you don't see it, check your spam folder.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Final CTA -->
   <section class="cta-section">
     <div class="container">
@@ -542,6 +596,35 @@
         }
       });
     });
+
+    // Sample-report email capture — AJAX submit so we can show inline success
+    const sampleForm = document.getElementById('sampleReportForm');
+    if (sampleForm) {
+      sampleForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = sampleForm.querySelector('button[type="submit"]');
+        const originalLabel = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
+        try {
+          const res = await fetch(sampleForm.action, {
+            method: 'POST',
+            body: new FormData(sampleForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            document.getElementById('sampleReportFields').style.display = 'none';
+            document.getElementById('sampleReportSuccess').classList.add('show');
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          btn.innerHTML = originalLabel;
+          btn.disabled = false;
+          alert("Something went wrong. Please try again, or message us on WhatsApp at +254 795 822 310.");
+        }
+      });
+    }
   </script>
 </body>
 </html>
