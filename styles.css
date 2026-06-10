@@ -10,27 +10,36 @@
   --primary-orange-dark: #EA580C;
   --primary-blue-light: #E1EFFE;
   --primary-orange-light: #FFEDD5;
-  
-  --text-dark: #111827;
-  --text-medium: #4B5563;
-  --text-light: #6B7280;
+
+  /* Deep navy scale for hero, CTA, and footer surfaces */
+  --navy-deep: #0A1228;
+  --navy-mid: #122451;
+  --navy-soft: #1A3173;
+  --gradient-hero: linear-gradient(140deg, #0A1228 0%, #122451 52%, #1E429F 125%);
+
+  --text-dark: #0F172A;
+  --text-medium: #475569;
+  --text-light: #64748B;
   --text-white: #FFFFFF;
-  
+
   --bg-white: #FFFFFF;
-  --bg-light: #F9FAFB;
-  --bg-gray: #F3F4F6;
-  --border-light: #E5E7EB;
-  
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
+  --bg-light: #F6F8FC;
+  --bg-gray: #EEF2F8;
+  --border-light: #E4E9F2;
+
+  --shadow-sm: 0 1px 2px 0 rgba(13, 30, 70, 0.06);
+  --shadow-md: 0 6px 16px -4px rgba(13, 30, 70, 0.10), 0 2px 4px -2px rgba(13, 30, 70, 0.06);
+  --shadow-lg: 0 14px 30px -8px rgba(13, 30, 70, 0.14), 0 4px 10px -4px rgba(13, 30, 70, 0.06);
+  --shadow-xl: 0 24px 48px -12px rgba(13, 30, 70, 0.18), 0 8px 16px -8px rgba(13, 30, 70, 0.08);
+
   --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
@@ -48,7 +57,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-dark);
@@ -87,9 +96,16 @@ input, textarea, select {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--text-dark);
+}
+
+::selection {
+  background-color: var(--primary-blue);
+  color: var(--text-white);
 }
 
 h1 { font-size: 2.5rem; }
@@ -170,36 +186,41 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.8125rem 1.75rem;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   transition: all var(--transition-fast);
   cursor: pointer;
 }
 
+.btn:focus-visible {
+  outline: 3px solid rgba(26, 86, 219, 0.4);
+  outline-offset: 2px;
+}
+
 .btn-primary {
-  background-color: var(--primary-blue);
+  background: linear-gradient(135deg, #2563EB 0%, var(--primary-blue) 60%, var(--primary-blue-dark) 130%);
   color: var(--text-white);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 20px -6px rgba(26, 86, 219, 0.5);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-blue-dark);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 26px -6px rgba(26, 86, 219, 0.55);
 }
 
 .btn-secondary {
-  background-color: var(--primary-orange);
+  background: linear-gradient(135deg, #FB923C 0%, var(--primary-orange) 55%, var(--primary-orange-dark) 130%);
   color: var(--text-white);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 20px -6px rgba(249, 115, 22, 0.55);
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-orange-dark);
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-dark) 100%);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 26px -6px rgba(249, 115, 22, 0.6);
 }
 
 .btn-outline {
@@ -237,13 +258,16 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: var(--bg-white);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-fast);
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  transition: box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
 .navbar.scrolled {
-  box-shadow: var(--shadow-md);
+  background-color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 4px 24px rgba(13, 30, 70, 0.08);
 }
 
 .navbar .container {
@@ -406,7 +430,7 @@ p {
   position: relative;
   padding-top: 6rem;
   padding-bottom: 4rem;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #1E3A8A 100%);
+  background: var(--gradient-hero);
   overflow: hidden;
 }
 
@@ -417,8 +441,10 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
+  background:
+    radial-gradient(640px 420px at 85% 8%, rgba(249, 115, 22, 0.16), transparent 65%),
+    radial-gradient(720px 520px at 8% 95%, rgba(59, 130, 246, 0.22), transparent 65%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .hero .container {
@@ -436,14 +462,19 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   color: var(--text-white);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.125rem;
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
   backdrop-filter: blur(10px);
+}
+
+.hero-badge i {
+  color: var(--primary-orange);
 }
 
 .hero-title {
@@ -835,7 +866,7 @@ p {
 
 /* Services Page */
 .services-hero {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #1E3A8A 100%);
+  background: var(--gradient-hero);
   padding: 8rem 0 4rem;
   text-align: center;
 }
@@ -924,9 +955,26 @@ p {
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #1E3A8A 100%);
-  padding: 4rem 0;
+  background: var(--gradient-hero);
+  padding: 5rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(560px 380px at 90% 0%, rgba(249, 115, 22, 0.18), transparent 65%),
+    radial-gradient(640px 460px at 5% 100%, rgba(59, 130, 246, 0.2), transparent 65%);
+  pointer-events: none;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-section h2 {
@@ -946,7 +994,7 @@ p {
 
 /* Contact Page */
 .contact-hero {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #1E3A8A 100%);
+  background: var(--gradient-hero);
   padding: 8rem 0 4rem;
   text-align: center;
 }
@@ -1105,7 +1153,7 @@ p {
 
 /* Legal Pages (Privacy & Terms) */
 .legal-hero {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #1E3A8A 100%);
+  background: var(--gradient-hero);
   padding: 8rem 0 3rem;
   text-align: center;
 }
@@ -1183,9 +1231,20 @@ p {
 
 /* Footer */
 .footer {
-  background-color: var(--text-dark);
+  background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy-deep) 100%);
   color: var(--text-white);
   padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
 }
 
 .footer-grid {
@@ -1475,7 +1534,7 @@ p {
 
 /* Top contact bar (above navbar) */
 .topbar {
-  background-color: var(--text-dark);
+  background-color: var(--navy-deep);
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.8125rem;
   padding: 0.5rem 0;
@@ -2462,7 +2521,7 @@ p {
    EMAIL CAPTURE SECTION
    ============================================ */
 .email-capture {
-  background: linear-gradient(135deg, #1A56DB 0%, #1E40AF 100%);
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--primary-blue) 130%);
   color: #fff;
   border-radius: 20px;
   padding: 3rem 2.5rem;
@@ -2608,4 +2667,65 @@ p {
   .email-capture { padding: 2.25rem 1.5rem; border-radius: 16px; }
   .email-capture-grid { grid-template-columns: 1fr; gap: 1.75rem; }
   .email-capture-content h2 { font-size: 1.625rem; }
+}
+
+/* ========================================
+   REDESIGN — 2026 Visual Refresh
+   Navy depth, display type, softer surfaces.
+   ======================================== */
+
+/* Final CTA headline scales with the rest of the type system */
+.cta-section h2 {
+  font-size: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .cta-section h2 { font-size: 2.5rem; }
+}
+
+/* Eyebrow gets a leading accent line */
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  border-radius: 2px;
+}
+
+/* Footer social icons pick up the brand gradient on hover */
+.footer-social a:hover {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-orange));
+  transform: translateY(-3px);
+}
+
+/* Form fields match the rounder system */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background-color: var(--bg-white);
+}
+
+/* Keyboard focus is always visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(26, 86, 219, 0.35);
+  outline-offset: 2px;
+}
+
+/* Light product heroes pick up the cooler background tints */
+.product-hero {
+  background: linear-gradient(135deg, #EFF5FF 0%, #FFF6EC 100%);
+}
+
+.product-hero-mch {
+  background: linear-gradient(135deg, #FFF6EC 0%, #FFE9D1 100%);
 }

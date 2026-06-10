@@ -41,11 +41,27 @@
       el.classList.add('reveal');
     });
 
+    // Stagger cards that share a parent so grids cascade in
+    function staggerDelay(el) {
+      var siblings = el.parentElement
+        ? el.parentElement.querySelectorAll(':scope > .reveal')
+        : [];
+      var index = Array.prototype.indexOf.call(siblings, el);
+      return index > 0 ? Math.min(index * 70, 350) : 0;
+    }
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          var el = entry.target;
+          var delay = staggerDelay(el);
+          el.style.transitionDelay = delay + 'ms';
+          el.classList.add('is-visible');
+          // Clear the delay once revealed so hover transitions stay snappy
+          setTimeout(function () {
+            el.style.transitionDelay = '';
+          }, delay + 750);
+          observer.unobserve(el);
         }
       });
     }, {
