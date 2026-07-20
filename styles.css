@@ -2729,3 +2729,167 @@ select:focus-visible {
 .product-hero-mch {
   background: linear-gradient(135deg, #FFF6EC 0%, #FFE9D1 100%);
 }
+
+/* ============================================================
+   2026-07 update: pricing, compliance, WhatsApp float
+   ============================================================ */
+
+/* Footer compliance line */
+.footer-compliance {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+.footer-compliance i { color: #F97316; margin-top: 2px; }
+
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.25rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  z-index: 990;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wa-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  .wa-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 4.75rem; right: 1rem; }
+}
+
+/* Pricing teaser (home) */
+.pricing-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.pricing-teaser-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pricing-teaser-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08); }
+.pricing-teaser-featured {
+  border: 2px solid #F97316;
+  position: relative;
+}
+.pricing-teaser-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1A56DB;
+  margin-bottom: 0.75rem;
+}
+.pricing-teaser-featured .pricing-teaser-label { color: #F97316; }
+.pricing-teaser-price {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: #0F172A;
+  margin-bottom: 0.75rem;
+}
+.pricing-teaser-price span { font-size: 0.9rem; font-weight: 600; color: #64748B; }
+.pricing-teaser-card p { font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0; }
+@media (max-width: 900px) { .pricing-teaser-grid { grid-template-columns: 1fr; } }
+
+/* Pricing page */
+.pricing-setup-note {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #FFF7ED;
+  border: 1px solid #FDBA74;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem auto 0;
+  max-width: 760px;
+  color: #7C2D12;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.pricing-setup-note i { color: #F97316; font-size: 1.25rem; margin-top: 3px; }
+
+.pricing-table-wrap { overflow-x: auto; margin-top: 2rem; }
+.pricing-table {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+  font-size: 0.95rem;
+}
+.pricing-table th {
+  background: #1A56DB;
+  color: #fff;
+  text-align: left;
+  padding: 0.9rem 1.25rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.pricing-table td {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid #F1F5F9;
+  color: #334155;
+  white-space: nowrap;
+}
+.pricing-table tbody tr:last-child td { border-bottom: none; }
+.pricing-table tbody tr:hover { background: #F8FAFC; }
+.pricing-table td strong { color: #0F172A; }
+
+.pricing-footnote {
+  max-width: 760px;
+  margin: 1.25rem auto 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+.pricing-includes {
+  list-style: none;
+  padding: 0;
+  max-width: 760px;
+  margin: 2rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 2rem;
+}
+.pricing-includes li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.93rem;
+  color: #334155;
+  line-height: 1.55;
+}
+.pricing-includes li i { color: #16A34A; margin-top: 3px; flex-shrink: 0; }
+@media (max-width: 700px) { .pricing-includes { grid-template-columns: 1fr; } }
