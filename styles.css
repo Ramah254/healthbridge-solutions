@@ -322,34 +322,6 @@ p {
   padding: 0.5rem 0;
 }
 
-.badge-soon {
-  display: inline-block;
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--primary-orange-dark);
-  background: var(--primary-orange-light);
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.badge-soon-lg {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--primary-orange-dark);
-  background: var(--primary-orange-light);
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-}
 
 .nav-link:hover,
 .nav-link.active {
