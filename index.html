@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>HealthBridge Solutions | Patient Retention Systems for Private Hospitals in Kenya</title>
+  <title>Patient Follow-up for Kenyan Private Hospitals | HealthBridge</title>
   <meta name="description" content="HealthBridge helps private hospitals in Kenya keep more patients coming back. Our live MCH system automates ANC, PNC and immunisation follow-up over WhatsApp, and our OPD follow-up system is launching soon.">
   <meta name="keywords" content="patient retention Kenya, MCH system, OPD system, private hospital software Kenya, ANC follow-up, immunization reminders, patient follow-up system">
   <meta name="author" content="HealthBridge Solutions">
@@ -18,7 +18,9 @@
   <meta property="og:url" content="https://healthbridgesolutions.net">
   <meta property="og:title" content="HealthBridge Solutions | Patient Retention for Private Hospitals">
   <meta property="og:description" content="Stop losing patients between visits. WhatsApp follow-up built for Kenyan private hospitals: MCH live today, OPD launching soon.">
-  <meta property="og:image" content="https://healthbridgesolutions.net/logo.png">
+  <meta property="og:image" content="https://healthbridgesolutions.net/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="HealthBridge Solutions">
 
   <!-- Twitter -->
@@ -26,7 +28,7 @@
   <meta property="twitter:url" content="https://healthbridgesolutions.net">
   <meta property="twitter:title" content="HealthBridge Solutions | Patient Retention for Private Hospitals">
   <meta property="twitter:description" content="Stop losing patients between visits. WhatsApp follow-up built for Kenyan private hospitals: MCH live today, OPD launching soon.">
-  <meta property="twitter:image" content="https://healthbridgesolutions.net/logo.png">
+  <meta property="twitter:image" content="https://healthbridgesolutions.net/og-image.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231A56DB' width='100' height='100' rx='15'/%3E%3Cpath fill='white' d='M50 25 L65 40 L55 40 L55 75 L45 75 L45 40 L35 40 Z'/%3E%3Ccircle fill='%23F97316' cx='75' cy='30' r='12'/%3E%3C/svg%3E">
@@ -91,6 +93,7 @@
   }
   </script>
   <script defer src="enhance.js"></script>
+  <script defer src="leads.js"></script>
 </head>
 <body>
   <!-- Top contact bar -->
@@ -106,7 +109,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="logo.png" alt="HealthBridge Solutions Logo" class="logo-img">
+        <img src="logo-96.png" alt="HealthBridge Solutions Logo" class="logo-img">
         <span class="logo-text">HealthBridge <span>Solutions</span></span>
       </a>
 
@@ -116,7 +119,7 @@
         <li><a href="mch.html" class="nav-link">MCH System</a></li>
         <li><a href="pricing.html" class="nav-link">Pricing</a></li>
         <li><a href="results.html" class="nav-link">Results</a></li>
-        <li><a href="why-patients-leave.html" class="nav-link">Resources</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
@@ -139,7 +142,7 @@
     <a href="mch.html" class="nav-link">MCH System</a>
     <a href="pricing.html" class="nav-link">Pricing</a>
     <a href="results.html" class="nav-link">Results</a>
-    <a href="why-patients-leave.html" class="nav-link">Resources</a>
+    <a href="resources.html" class="nav-link">Resources</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <a href="contact.html" class="btn btn-primary">Book a Demo</a>
   </div>
@@ -157,18 +160,18 @@
           <span>We fix that.</span>
         </h1>
         <p class="hero-subtitle">
-          Most private hospitals lose 3 to 5 out of every 10 patients after the first visit.
-          HealthBridge's MCH system keeps mothers and babies engaged from the first ANC visit
-          through every immunisation, over the WhatsApp they already use &mdash; and our OPD system brings the same follow-up to outpatients soon.
+                    Most private hospitals lose 3 to 5 of every 10 patients after the first visit.
+          HealthBridge follows up every mother and baby on WhatsApp, from the first ANC visit
+          to the last immunisation, so they come back to you.
         </p>
         <div class="hero-buttons">
           <a href="contact.html" class="btn btn-secondary btn-large">
             <i class="fas fa-calendar-check"></i>
             Book a 20-minute Demo
           </a>
-          <a href="#products" class="btn btn-white btn-large">
-            <i class="fas fa-arrow-down"></i>
-            See the Systems
+                    <a href="#sample-report" class="btn btn-white btn-large">
+            <i class="fas fa-file-lines"></i>
+            Get the Free Sample Report
           </a>
         </div>
 
@@ -355,7 +358,7 @@
     <div class="container">
       <div class="founder-card">
         <div class="founder-card-photo">
-          <img src="founder.jpg" alt="Ramadhan Omar, Founder of HealthBridge Solutions">
+          <img src="founder-480.jpg" alt="Ramadhan Omar, Founder of HealthBridge Solutions">
         </div>
         <div class="founder-card-content">
           <div class="eyebrow">A note from the founder</div>
@@ -392,7 +395,7 @@
   </section>
 
   <!-- Email capture — for visitors not ready to book a demo -->
-  <section class="section bg-light">
+    <section class="section bg-light" id="sample-report">
     <div class="container">
       <div class="email-capture">
         <div class="email-capture-grid">
@@ -411,8 +414,9 @@
             </ul>
           </div>
           <div class="email-capture-form-wrap">
-            <form class="email-capture-form" id="sampleReportForm" action="https://formspree.io/f/meerjvzg" method="POST">
-              <div id="sampleReportFields">
+            <form class="email-capture-form" id="sampleReportForm" data-lead="sample_report" action="https://formspree.io/f/meerjvzg" method="POST">
+              <div id="sampleReportFields" data-lead-fields>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
                 <label for="srName">Your name</label>
                 <input type="text" id="srName" name="name" placeholder="Dr. Jane Wanjiku" required>
 
@@ -430,7 +434,7 @@
                 </button>
                 <p class="form-fineprint">We respect your inbox. Your details stay private.</p>
               </div>
-              <div class="email-capture-success" id="sampleReportSuccess">
+              <div class="email-capture-success" id="sampleReportSuccess" data-lead-success>
                 <i class="fas fa-circle-check"></i>
                 <h3>Sample report on its way.</h3>
                 <p>Check your inbox in the next few minutes. If you don't see it, check your spam folder.</p>
@@ -493,7 +497,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="logo.png" alt="HealthBridge Solutions Logo" class="logo-img">
+            <img src="logo-96.png" alt="HealthBridge Solutions Logo" class="logo-img">
             <span class="logo-text">HealthBridge <span>Solutions</span></span>
           </a>
           <p>
@@ -554,11 +558,7 @@
       </div>
     </div>
   </footer>
-
-  <!-- Sticky WhatsApp button -->
-  <a href="https://wa.me/254795822310" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+
 
   <!-- Scroll to Top Button -->
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
@@ -617,34 +617,6 @@
       });
     });
 
-    // Sample-report email capture — AJAX submit so we can show inline success
-    const sampleForm = document.getElementById('sampleReportForm');
-    if (sampleForm) {
-      sampleForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const btn = sampleForm.querySelector('button[type="submit"]');
-        const originalLabel = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        btn.disabled = true;
-        try {
-          const res = await fetch(sampleForm.action, {
-            method: 'POST',
-            body: new FormData(sampleForm),
-            headers: { 'Accept': 'application/json' }
-          });
-          if (res.ok) {
-            document.getElementById('sampleReportFields').style.display = 'none';
-            document.getElementById('sampleReportSuccess').classList.add('show');
-          } else {
-            throw new Error('Submission failed');
-          }
-        } catch (err) {
-          btn.innerHTML = originalLabel;
-          btn.disabled = false;
-          alert("Something went wrong. Please try again, or message us on WhatsApp at +254 795 822 310.");
-        }
-      });
-    }
   </script>
 
   <!-- Floating WhatsApp -->
