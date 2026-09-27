@@ -2912,3 +2912,9 @@ select:focus-visible {
 .promo-strip-text h3 { margin:0 0 .35rem; font-size:1.25rem; color:#0F172A; }
 .promo-strip-text p { margin:0; color:#475569; }
 @media (min-width: 860px) { .promo-strip-inner { flex-direction:row; align-items:center; padding:1.75rem 2rem; } }
+
+/* MCH product loop band (mch.html) */
+.product-demo { background: var(--navy-deep); padding: 3rem 0; }
+.product-demo-frame { max-width: 1200px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: var(--navy-deep); box-shadow: 0 30px 80px rgba(10, 18, 40, 0.45); }
+.product-demo-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 600px) { .product-demo { padding: 1.5rem 0; } .product-demo-frame { border-radius: 10px; } }

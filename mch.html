@@ -169,6 +169,25 @@
     </div>
   </section>
 
+  <!-- See it working: 24s silent product loop (videos/mch-web-loop) -->
+  <section class="product-demo" aria-label="HealthBridge MCH in action">
+    <div class="container">
+      <div class="product-demo-frame">
+        <video class="product-demo-video" autoplay muted loop playsinline preload="metadata" poster="media/mch-loop-poster.jpg"
+               aria-label="HealthBridge MCH in action: WhatsApp reminders in her language, danger signs escalated to a nurse, visit timelines from ANC to 18 months, and the mother register">
+          <source src="media/mch-loop-720.mp4" type="video/mp4" media="(max-width: 900px)">
+          <source src="media/mch-loop-1080.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var v = document.querySelector(".product-demo-video");
+      if (v && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.controls = true; }
+    })();
+  </script>
+
   <!-- Three things it does -->
   <section class="section">
     <div class="container">
