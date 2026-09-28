@@ -207,3 +207,47 @@ The system is your door into the college, and the job is what you're really afte
 - about KSh 2–4.5M a year in subscriptions
 - You employed as a lecturer or clinical instructor at one of them
 - Real data that you could later turn into a published paper on e-logbooks in Kenya, which further boosts your academic CV
+
+---
+
+## 12. No-code build: reuse the MCH stack (Meta + Make + Vercel + Google Sheets + AppSheet)
+
+Use this for the pilot and the first 1–3 colleges. Move to a coded app (Next.js + Supabase) once any "switch trigger" below is hit.
+
+### Who uses which tool
+| Person | Tool | Why |
+|---|---|---|
+| Student (many users) | **Vercel web form** (phone page, works offline and syncs later) → Make webhook | Avoids paying AppSheet per student |
+| Ward preceptor | **WhatsApp (Meta Cloud API)** with Confirm / Reject buttons | No login, one tap |
+| Lecturer, Head of Nursing, Principal (few users) | **AppSheet** app on top of the Sheet | Dashboards, OSCE scoring, rosters |
+| Data | **Google Sheets**, one spreadsheet per college | Easy to separate, export and hand back |
+| Automation | **Make.com** | Joins everything together |
+
+### Sheet tabs (one spreadsheet per college)
+`Students` · `Lecturers` · `Hospitals_Wards` · `Preceptors` · `Competencies` · `Placements` · `Logs` · `OSCE_Stations` · `OSCE_Results` · `Audit`
+
+`Logs` columns: LogID, StudentID, CompetencyID, Date, Ward, BedNo, PreceptorPhone, Status (Pending/Confirmed/Rejected), SentAt, RepliedAt, ReplyFrom
+
+### Make scenarios
+1. **New log**: Webhook (from Vercel form) → Sheets: add row (Pending) → look up the preceptor from Placements → WhatsApp: send template "ClinicalPass: {Student} logged {Procedure} on {Date}, {Ward}. Confirm?" with buttons [Confirm] [Reject].
+2. **Preceptor reply**: WhatsApp webhook (button reply) → find LogID → check the reply came from the expected preceptor number → update Status, RepliedAt → write to Audit.
+3. **Reminder** (daily, 6pm): Pending logs older than 24h → one batched WhatsApp to the preceptor ("You have 4 student procedures to confirm") → after 72h, flag the log to the clinical instructor in AppSheet.
+4. **Weekly progress** (Monday): per student, count confirmed logs against the required count → WhatsApp or SMS the student their progress → email the Head of Nursing a summary of the red and amber students.
+5. **OSCE**: AppSheet form entry → Make adds up the checklist → writes to OSCE_Results → sends the student their score and weak items.
+
+### Meta / WhatsApp rules to plan for
+- A business-started message (to the preceptor) must use a **pre-approved template**, category **Utility**. Submit 3–4 templates early, because approval takes time.
+- Meta charges **per template message**. Cut costs with **batched daily reminders** instead of one message per log where possible.
+- Preceptors must **opt in**: at placement start, send an intro template and record consent in the Preceptors tab.
+- Use a separate WhatsApp number/display name ("ClinicalPass"), not the MCH one.
+
+### Costs to watch (check current prices before quoting)
+- **Make operations**: each log uses about 6–10 ops. For 300 students × 2 logs a day, that's about 18,000 logs a month, or roughly 150k ops. That needs a higher Make plan, so price it into the college fee.
+- **AppSheet**: billed per signed-in user. Keep AppSheet to staff only (about 5–15 users per college). Students use the Vercel form.
+- **WhatsApp**: per-message fee on Utility templates.
+- **Google Sheets**: max 10M cells per spreadsheet, and it slows well before that. Archive `Logs` each term.
+
+### Switch to a coded app when…
+- more than 3 colleges, or more than 1,000 active students
+- Sheets or AppSheet gets slow, or Make ops cost more than about KSh 15k/month
+- a college asks for stronger security or audit guarantees
