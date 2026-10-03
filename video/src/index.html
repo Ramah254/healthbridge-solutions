@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HealthBridge Solutions — Patients Who Come Back (18s motion piece)</title>
+<meta name="viewport" content="width=1920">
+<style>
+@font-face{font-family:"Plus Jakarta Sans";font-weight:500;src:url(fonts/plus-jakarta-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:600;src:url(fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:700;src:url(fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:800;src:url(fonts/plus-jakarta-sans-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:400;src:url(fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;src:url(fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;src:url(fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:700;src:url(fonts/inter-latin-700-normal.woff2) format("woff2")}
+
+:root{
+  --blue:#1A56DB;--blue-d:#1E429F;--blue-l:#E1EFFE;--blue-b:#4F8BFF;
+  --orange:#F97316;--orange-l:#FDBA74;--orange-d:#EA580C;
+  --navy:#0A1228;--navy2:#122451;--navy3:#1A3173;
+  --light:#F6F8FC;--ink:#0F172A;--mid:#475569;--soft:#64748B;--line:#CBD5E1;
+  --wa:#25D366;--wa-d:#0E8A4F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;font-family:"Inter",sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+.layer{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.abs{position:absolute}
+.disp{font-family:"Plus Jakarta Sans","Inter",sans-serif;font-weight:800;letter-spacing:-.035em;line-height:1.04}
+.mask{overflow:hidden;padding:.1em .06em .14em;margin:-.1em -.06em -.14em}
+.mask>span{display:block;will-change:transform}
+.center{left:0;width:1920px;text-align:center}
+.o{opacity:0}
+
+/* ---------- backgrounds ---------- */
+#bgNavy,#bgNavy2{background:linear-gradient(140deg,#0A1228 0%,#122451 52%,#1E429F 125%)}
+#bgNavy2{background:linear-gradient(160deg,#0A1228 0%,#122451 55%,#1A3173 118%);clip-path:circle(0px at 960px 830px)}
+.blob{position:absolute;border-radius:50%;filter:blur(110px)}
+#bgLight{background:radial-gradient(1300px 820px at 14% 8%,#E6EEFF 0%,rgba(230,238,255,0) 62%),radial-gradient(1100px 760px at 92% 104%,#FFEFE0 0%,rgba(255,239,224,0) 58%),#F6F8FC;clip-path:circle(0px at 960px 360px)}
+#bgLight .dots{position:absolute;inset:0;background-image:radial-gradient(#BFCDE8 1.6px,transparent 1.8px);background-size:44px 44px;opacity:.55;-webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 0%,rgba(0,0,0,.25) 70%,transparent 100%);mask-image:radial-gradient(ellipse at 50% 45%,#000 0%,rgba(0,0,0,.25) 70%,transparent 100%)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:soft-light;pointer-events:none}
+
+/* ---------- S1 ---------- */
+#s1h{top:150px}
+#s1h .disp{font-size:136px;color:#fff}
+#s1h .l2{color:var(--orange-l)}
+.person{position:absolute;width:108px;height:140px;color:#5B8DEF;filter:drop-shadow(0 14px 26px rgba(59,130,246,.45));opacity:0}
+.person svg{width:100%;height:100%;display:block;fill:currentColor}
+#trails{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#chip{position:absolute;left:0;width:1920px;top:944px;display:flex;justify-content:center;opacity:0}
+#chip div{display:flex;align-items:center;gap:18px;padding:0 38px;height:72px;border-radius:999px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.16);font-weight:600;font-size:33px;color:rgba(255,255,255,.92);backdrop-filter:blur(6px)}
+#chip i{width:16px;height:16px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 8px rgba(249,115,22,.25)}
+#chip b{color:var(--orange-l);font-weight:700}
+
+/* ---------- S2 ---------- */
+#cal{position:absolute;left:430px;top:96px;width:1060px;height:520px;border-radius:34px;background:rgba(255,255,255,.055);border:2px solid rgba(255,255,255,.11);padding:30px 34px;box-shadow:0 40px 90px rgba(0,0,0,.35);opacity:0}
+#cal .days{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;height:44px;align-items:center;font-weight:600;font-size:25px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);padding-left:6px}
+#cal .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:10px}
+.slot{position:relative;height:88px;border-radius:16px}
+.slot .fill{position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,#3B7BFF,#1A56DB);box-shadow:0 10px 22px rgba(26,86,219,.38);opacity:0}
+.slot .who{position:absolute;left:16px;top:0;bottom:0;display:flex;align-items:center;gap:12px}
+.slot .who i{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.38)}
+.slot .who b{display:block;width:74px;height:10px;border-radius:5px;background:rgba(255,255,255,.78)}
+.slot .who u{display:block;width:48px;height:8px;border-radius:4px;background:rgba(255,255,255,.38);margin-top:9px}
+.slot .ring{position:absolute;inset:0;border-radius:16px;border:3px dashed var(--orange);opacity:0}
+.slot .flash{position:absolute;inset:0;border-radius:16px;background:var(--orange);opacity:0}
+.slot .x{position:absolute;inset:0;display:grid;place-items:center;opacity:0}
+.slot .x svg{width:30px;height:30px}
+.beat{position:absolute;left:0;width:1920px;text-align:center;top:676px}
+.beat .disp{font-size:122px}
+.beat em{font-style:normal;color:var(--orange-l)}
+
+#tl2{position:absolute;left:0;top:0;width:1920px;height:1080px;opacity:0}
+.node{position:absolute;width:60px;height:60px;border-radius:50%;border:7px solid var(--blue-b);background:var(--navy2);box-shadow:0 0 0 10px rgba(79,139,255,.14);opacity:0}
+.glab{position:absolute;transform:translateX(-50%);font-weight:600;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap;opacity:0}
+.bang{position:absolute;left:918px;top:318px;width:84px;height:84px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(249,115,22,.25),0 0 60px rgba(249,115,22,.6);opacity:0}
+.bang span{font:800 56px "Plus Jakarta Sans";color:#fff;line-height:1}
+
+/* ---------- S3 ---------- */
+#s3 svg{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
+#logo3{position:absolute;left:855px;top:245px;width:210px;height:210px;border-radius:50%;background:#fff;box-shadow:0 24px 60px rgba(30,66,159,.28),0 0 0 8px rgba(255,255,255,.7);display:grid;place-items:center;opacity:0}
+#logo3 img{width:176px;height:176px;display:block}
+#ring3{position:absolute;left:855px;top:245px;width:210px;height:210px;border-radius:50%;border:5px solid var(--orange);opacity:0}
+#wm3{top:740px}
+#wm3 .disp{font-size:104px;color:var(--ink)}
+#wm3 .disp b{color:var(--blue);font-weight:800}
+#wm3 .disp s{text-decoration:none;font-weight:600;color:var(--mid)}
+#sub3{top:872px;font-weight:500;font-size:46px;color:var(--mid);letter-spacing:-.01em;opacity:0}
+#sub3 b{color:var(--wa-d);font-weight:700}
+
+/* ---------- S4 ---------- */
+#bugText{position:absolute;left:176px;top:62px;font-size:32px;color:var(--ink);opacity:0;letter-spacing:-.02em}
+#bugText b{color:var(--blue)}
+#s4h{left:140px;top:212px;font-size:98px;color:var(--ink)}
+#s4h .g{color:var(--wa-d)}
+#lang{position:absolute;left:140px;top:468px;display:flex;padding:7px;border-radius:999px;background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.10);border:2px solid #E4E9F2;opacity:0}
+#lang span{position:relative;z-index:2;padding:0;text-align:center;height:62px;line-height:62px;font-weight:700;font-size:30px;color:var(--soft)}
+#langEN{width:190px}#langSW{width:214px}
+#lang .thumb{position:absolute;z-index:1;left:7px;top:7px;height:62px;width:190px;border-radius:999px;background:var(--blue);box-shadow:0 8px 20px rgba(26,86,219,.35)}
+#lang .on{color:#fff}
+#sub4{position:absolute;left:140px;top:578px;font-size:42px;font-weight:500;color:var(--mid);letter-spacing:-.01em;opacity:0}
+#steps{position:absolute;left:140px;top:748px;width:1040px;display:flex;gap:16px}
+.step{flex:1;display:flex;align-items:center;gap:16px;padding:18px 22px;background:#fff;border:2px solid #E4E9F2;border-radius:24px;box-shadow:0 14px 34px rgba(15,23,42,.08);font-weight:600;font-size:26px;line-height:1.2;color:var(--ink);opacity:0}
+.step i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--blue);color:#fff;font:800 28px/52px "Plus Jakarta Sans";text-align:center;font-style:normal}
+.step:nth-child(2) i{background:var(--wa-d)}
+.step:nth-child(3) i{background:var(--orange)}
+#phone{position:absolute;left:1236px;top:150px;width:420px;height:790px;opacity:0}
+#phone .bezel{position:absolute;inset:0;border-radius:70px;background:#0B1020;box-shadow:0 50px 100px rgba(15,23,42,.35),0 0 0 3px #1E293B inset,0 0 0 2px rgba(255,255,255,.04)}
+#phone .screen{position:absolute;left:14px;top:14px;width:392px;height:762px;border-radius:58px;background:#EFE7DE;overflow:hidden}
+.notch{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:120px;height:32px;border-radius:20px;background:#0B1020;z-index:5}
+.chead{position:absolute;left:0;top:0;width:100%;height:132px;background:#008069;padding:58px 22px 0;display:flex;align-items:center;gap:14px;z-index:4}
+.chead .av{width:58px;height:58px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.chead .av svg{width:34px;height:34px}
+.chead .nm{font-weight:700;font-size:25px;color:#fff;line-height:1.1}
+.chead .st{font-weight:500;font-size:17px;color:rgba(255,255,255,.82);margin-top:3px}
+.chat{position:absolute;left:0;top:132px;width:100%;bottom:84px;padding:22px 16px;background:#EFE7DE}
+.day{margin:0 auto 18px;width:max-content;padding:6px 16px;border-radius:10px;background:rgba(255,255,255,.85);font-weight:600;font-size:15px;color:#54656F;letter-spacing:.04em}
+.bubble{position:relative;max-width:340px;padding:14px 18px 10px;border-radius:20px;font-size:26px;line-height:1.34;color:#111B21;box-shadow:0 2px 3px rgba(11,20,26,.14)}
+.bubble.in{background:#fff;border-top-left-radius:4px;margin-bottom:16px}
+.bubble.out{background:#D9FDD3;border-top-right-radius:4px;margin:0 0 0 auto;width:max-content}
+.bubble .time{display:flex;justify-content:flex-end;align-items:center;gap:5px;font-size:15px;color:#667781;margin-top:2px}
+.stack{display:grid}.stack p{grid-area:1/1}
+.stack b{font-weight:700}
+.tick{width:22px;height:16px;position:relative;color:#8696A0}
+.tick svg{position:absolute;left:0;top:0;width:15px;height:15px}.tick svg+svg{left:6px}
+#typing{width:92px;height:48px;padding:0;display:flex;align-items:center;justify-content:center;gap:7px;position:absolute;left:18px;top:94px;opacity:0}
+#typing i{width:11px;height:11px;border-radius:50%;background:#8696A0}
+#b1{opacity:0}#b2{opacity:0}
+.cinput{position:absolute;left:0;bottom:0;width:100%;height:84px;background:#F0F2F5;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;z-index:3}
+.cinput div{flex:1;height:54px;border-radius:27px;background:#fff;color:#8696A0;font-size:20px;padding:0 20px;line-height:54px}
+.cinput span{width:54px;height:54px;border-radius:50%;background:#008069}
+#toast{position:absolute;left:896px;top:648px;display:flex;align-items:center;gap:16px;padding:0 30px 0 18px;height:84px;border-radius:999px;background:#fff;box-shadow:0 24px 60px rgba(15,23,42,.22);font-weight:700;font-size:30px;color:var(--ink);opacity:0;white-space:nowrap;z-index:9}
+#toast .c{width:50px;height:50px;border-radius:50%;background:var(--wa-d);display:grid;place-items:center}
+#toast .c svg{width:30px;height:30px}
+
+/* ---------- S5 ---------- */
+#s5h{top:158px}
+#s5h .disp{font-size:98px;color:var(--ink)}
+#s5h .disp em{font-style:normal;color:var(--blue)}
+.node5{position:absolute;width:60px;height:60px;border-radius:50%;border:7px solid var(--line);background:#fff;box-shadow:0 8px 22px rgba(15,23,42,.10);opacity:0}
+.node5 .f{position:absolute;inset:-7px;border-radius:50%;background:linear-gradient(135deg,#3B7BFF,#1A56DB);display:grid;place-items:center;opacity:0;box-shadow:0 0 0 10px rgba(26,86,219,.14),0 10px 26px rgba(26,86,219,.4)}
+.node5 .f svg{width:30px;height:30px}
+.glab5{position:absolute;transform:translateX(-50%);font-weight:700;font-size:25px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);white-space:nowrap;opacity:0}
+#card{position:absolute;left:360px;top:708px;width:1200px;height:280px;border-radius:34px;background:#fff;border:2px solid #E4E9F2;box-shadow:0 34px 80px rgba(15,23,42,.16);padding:22px 34px;opacity:0}
+#card .hd{display:flex;align-items:center;justify-content:space-between;height:46px}
+#card .hd b{font:700 31px "Plus Jakarta Sans";color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+#card .hd b svg{width:30px;height:30px}
+#card .tag{font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:#C2410C;background:#FFEDD5;border-radius:999px;padding:7px 16px}
+#card .row{display:flex;gap:26px;margin-top:10px}
+.tile{flex:1;border-radius:22px;background:#F6F8FC;border:2px solid #E9EEF7;padding:14px 20px 10px;position:relative;opacity:0}
+.tile .lb{font-weight:600;font-size:25px;color:var(--mid);display:flex;justify-content:space-between;align-items:center}
+.tile .up{width:36px;height:36px;border-radius:11px;background:#DCFCE7;color:#16A34A;display:grid;place-items:center}
+.tile .up svg{width:22px;height:22px}
+.tile svg.sp{display:block;width:100%;height:96px;margin-top:2px;overflow:visible}
+
+/* ---------- S6 ---------- */
+#s6{opacity:0}
+#lock6{position:absolute;left:0;width:1920px;top:66px;display:flex;justify-content:center;align-items:center;gap:22px;opacity:0}
+#lock6 .lg{width:98px;height:98px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 12px 34px rgba(0,0,0,.35)}
+#lock6 .lg img{width:84px;height:84px;display:block}
+#lock6 .wm{font-size:56px;color:#fff}
+#lock6 .wm s{text-decoration:none;font-weight:600;color:rgba(255,255,255,.7)}
+#h6{top:214px}
+#h6 .disp{font-size:142px;color:#fff}
+#h6 .disp em{font-style:normal;color:var(--orange)}
+#btn{position:absolute;left:560px;top:618px;width:800px;height:128px;border-radius:64px;background:linear-gradient(135deg,#FB923C,#F97316 55%,#EA580C);box-shadow:0 26px 70px rgba(249,115,22,.5),0 0 0 2px rgba(255,255,255,.18) inset;display:flex;align-items:center;justify-content:center;gap:26px;font:700 54px "Plus Jakarta Sans";letter-spacing:-.02em;color:#fff;opacity:0}
+#btn .ar{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+#btn .ar svg{width:32px;height:32px}
+#ripple{position:absolute;left:560px;top:618px;width:800px;height:128px;border-radius:64px;border:5px solid rgba(255,255,255,.85);opacity:0}
+#url{top:800px;font-weight:600;font-size:62px;letter-spacing:-.015em;color:#C7D9FF;opacity:0}
+#url span{position:relative;display:inline-block}
+#url span:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:6px;border-radius:3px;background:var(--orange);transform:scaleX(var(--ul,0));transform-origin:left}
+#trust{top:962px;display:flex;justify-content:center;gap:34px;font-weight:600;font-size:25px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);opacity:0}
+#trust i{width:8px;height:8px;border-radius:50%;background:var(--orange);align-self:center}
+#cursor{position:absolute;left:0;top:0;width:60px;height:60px;opacity:0;filter:drop-shadow(0 8px 14px rgba(0,0,0,.45))}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- backgrounds -->
+  <div id="bgNavy" class="layer">
+    <div class="blob" id="blobA" style="left:1200px;top:-200px;width:900px;height:900px;background:rgba(26,86,219,.45)"></div>
+    <div class="blob" id="blobB" style="left:-260px;top:620px;width:760px;height:760px;background:rgba(249,115,22,.14)"></div>
+  </div>
+  <div id="bgLight" class="layer"><div class="dots"></div></div>
+  <div id="bgNavy2" class="layer">
+    <div class="blob" style="left:1250px;top:-260px;width:900px;height:900px;background:rgba(26,86,219,.5)"></div>
+    <div class="blob" style="left:-280px;top:640px;width:800px;height:800px;background:rgba(249,115,22,.16)"></div>
+  </div>
+
+  <!-- S1 : the leak -->
+  <div id="s1" class="layer">
+    <div id="s1h" class="abs center">
+      <div class="mask"><span id="s1a" class="disp">Patients walk out.</span></div>
+      <div class="mask"><span id="s1b" class="disp l2">…and never come back.</span></div>
+    </div>
+    <svg id="trails" viewBox="0 0 1920 1080"></svg>
+    <div id="people"></div>
+    <div id="chip"><div><i></i><span>Most hospitals lose <b>3–5 of every 10</b> patients after the first visit</span></div></div>
+  </div>
+
+  <!-- S2 : the cost -->
+  <div id="s2" class="layer">
+    <div id="cal"><div class="days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div><div class="grid" id="grid"></div></div>
+    <div id="tl2"></div>
+    <div class="beat" id="beat1"><div class="mask"><span class="disp">Missed visits.</span></div></div>
+    <div class="beat" id="beat2"><div class="mask"><span class="disp">Empty slots.</span></div></div>
+    <div class="beat" id="beat3"><div class="mask"><span class="disp">Mothers <em>off schedule.</em></span></div></div>
+  </div>
+
+  <!-- S3 : the bridge -->
+  <div id="s3" class="layer">
+    <svg id="bridge" viewBox="0 0 1920 1080"></svg>
+    <div id="ring3"></div>
+    <div id="logo3"><img src="../../logo.png" alt=""></div>
+    <div id="wm3" class="abs center"><div class="mask"><span class="disp"><b>HealthBridge</b> <s>Solutions</s></span></div></div>
+    <div id="sub3" class="abs center">Patient follow-up on <b>WhatsApp</b>.</div>
+  </div>
+
+  <!-- S4 : how it works -->
+  <div id="s4" class="layer">
+    <div id="bugText" class="disp"><b>Health</b>Bridge <span style="font-weight:600;color:var(--mid)">Solutions</span></div>
+    <div id="s4h" class="abs disp">
+      <div class="mask"><span>Automatic</span></div>
+      <div class="mask"><span><span class="g">WhatsApp</span> follow-up.</span></div>
+    </div>
+    <div id="lang"><div class="thumb"></div><span class="on" id="langEN">English</span><span id="langSW">Kiswahili</span></div>
+    <div id="sub4">Nothing new for your staff to do.</div>
+    <div id="steps">
+      <div class="step"><i>1</i><span>Connect with your facility</span></div>
+      <div class="step"><i>2</i><span>Reach patients on WhatsApp</span></div>
+      <div class="step"><i>3</i><span>Get your monthly report</span></div>
+    </div>
+    <div id="phone">
+      <div class="bezel"></div>
+      <div class="screen">
+        <div class="notch"></div>
+        <div class="chead">
+          <div class="av"><svg viewBox="0 0 24 24"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z" fill="#1A56DB"/></svg></div>
+          <div><div class="nm">Your Hospital</div><div class="st">online</div></div>
+        </div>
+        <div class="chat">
+          <div class="day">TODAY</div>
+          <div class="bubble in" id="typing"><i></i><i></i><i></i></div>
+          <div class="bubble in" id="b1">
+            <div class="stack">
+              <p class="en"><b>Hello Mary,</b> your ANC visit is this Thursday at 10:00. We look forward to seeing you.</p>
+              <p class="sw"><b>Habari Mary,</b> kliniki yako ya ANC ni Alhamisi saa nne asubuhi. Tunakusubiri!</p>
+            </div>
+            <span class="time">08:00</span>
+          </div>
+          <div class="bubble out" id="b2"><p>Asante, nitakuja!</p>
+            <span class="time">08:02
+              <span class="tick" id="tick"><svg viewBox="0 0 24 24"><path d="M3 12.5l4.6 4.6L17 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><path d="M3 12.5l4.6 4.6L17 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
+          </div>
+        </div>
+        <div class="cinput"><div>Message</div><span></span></div>
+      </div>
+    </div>
+    <div id="toast"><div class="c"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Visit confirmed</div>
+  </div>
+
+  <!-- S5 : the impact -->
+  <div id="s5" class="layer">
+    <div id="s5h" class="abs center">
+      <div class="mask"><span class="disp">Every mother <em>on schedule.</em></span></div>
+      <div class="mask"><span class="disp">Every baby <em>on time.</em></span></div>
+    </div>
+    <div id="tl5" class="layer"></div>
+    <div id="card">
+      <div class="hd"><b><svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>Monthly owner report — in your inbox</b><span class="tag">Illustrative</span></div>
+      <div class="row" id="tiles"></div>
+    </div>
+  </div>
+
+  <!-- S6 : call to action -->
+  <div id="s6" class="layer">
+    <div id="lock6"><div class="lg"><img src="../../logo.png" alt=""></div><div class="wm disp"><span style="font-weight:800">HealthBridge</span> <s>Solutions</s></div></div>
+    <div id="h6" class="abs center">
+      <div class="mask"><span class="disp">Patients who</span></div>
+      <div class="mask"><span class="disp"><em>come back.</em></span></div>
+    </div>
+    <div id="ripple"></div>
+    <div id="btn"><span>Book a 20-minute Demo</span><div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+    <div id="url" class="abs center"><span>healthbridgesolutions.net</span></div>
+    <div id="trust" class="abs" style="left:0;width:1920px"><span>Nurse-founded</span><i></i><span>Built in Kenya</span><i></i><span>ODPC-registered</span></div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2.5l15.5 9.2-6.6 1.8 3.9 6.9-3.1 1.7-3.9-6.9-4.6 4.4z" fill="#fff" stroke="#0A1228" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  </div>
+
+  <!-- persistent brand bug (S3 logo scales into it for S4–S5) -->
+  <svg id="grain" viewBox="0 0 1920 1080" preserveAspectRatio="none"><filter id="gn" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#gn)"/></svg>
+</div>
+
+<script src="vendor/gsap.min.js"></script>
+<script>
+(() => {
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const NS = 'http://www.w3.org/2000/svg';
+const svgEl = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; };
+const CHECK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+/* ============ build: S1 people + trails ============ */
+const PERSON = '<svg viewBox="0 0 100 130"><circle cx="50" cy="30" r="24"/><path d="M6 128c0-42 20-60 44-60s44 18 44 60z"/></svg>';
+const shades = ['#4F8BFF','#6B9CFF','#3F7BFF','#5B8DEF','#4A86FF','#6A9BFF','#3B7BFF','#5C92FF','#4F8BFF','#6B9CFF'];
+const people = [];
+for (let r = 0; r < 2; r++) for (let c = 0; c < 5; c++) {
+  const i = r * 5 + c, e = document.createElement('div');
+  e.className = 'person'; e.innerHTML = PERSON; e.style.color = shades[i];
+  e.style.left = (960 + (c - 2) * 190 - 54) + 'px'; e.style.top = (r === 0 ? 566 : 746) + 'px';
+  $('#people').appendChild(e); people.push(e);
+}
+const lost = [ {id:1, dx:-1150, dy:-210}, {id:3, dx:1050, dy:-300}, {id:5, dx:-1050, dy:250}, {id:8, dx:900, dy:330} ];
+const defs = svgEl('defs', {}, $('#trails'));
+lost.forEach((L, k) => {
+  const p = people[L.id], cx = parseFloat(p.style.left) + 54, cy = parseFloat(p.style.top) + 70;
+  const d = `M${cx} ${cy} L${cx + L.dx} ${cy + L.dy}`;
+  const m = svgEl('mask', { id: 'tm' + k, maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: 1920, height: 1080 }, defs);
+  L.mask = svgEl('path', { d, stroke: '#fff', 'stroke-width': 16, fill: 'none', pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1, 'stroke-linecap': 'round' }, m);
+  svgEl('path', { d, stroke: 'rgba(255,255,255,.5)', 'stroke-width': 6, fill: 'none', 'stroke-dasharray': '1 17', 'stroke-linecap': 'round', mask: `url(#tm${k})` }, $('#trails'));
+});
+
+/* ============ build: S2 calendar ============ */
+const missed = [2, 5, 7, 8, 11, 13, 16, 18];
+for (let i = 0; i < 20; i++) {
+  const s = document.createElement('div'); s.className = 'slot';
+  s.innerHTML = '<div class="fill"><div class="who"><i></i><div><b></b><u></u></div></div></div><div class="flash"></div><div class="ring"></div><div class="x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#F97316" stroke-width="3.4" stroke-linecap="round"/></svg></div>';
+  $('#grid').appendChild(s);
+}
+const slots = $$('.slot');
+
+/* ============ build: S2 timeline (broken) ============ */
+const NX = [360, 600, 840, 1080, 1320, 1560], TY2 = 360;
+const tl2 = $('#tl2');
+const lineA = Object.assign(document.createElement('div'), {}), lineB = document.createElement('div');
+[[lineA, 360, 840], [lineB, 1080, 1560]].forEach(([l, a, b]) => { Object.assign(l.style, { position: 'absolute', left: a + 'px', top: (TY2 - 4) + 'px', width: (b - a) + 'px', height: '8px', borderRadius: '4px', background: 'rgba(255,255,255,.34)', transformOrigin: 'left center' }); tl2.appendChild(l); });
+const lineM = document.createElement('div');
+Object.assign(lineM.style, { position: 'absolute', left: '840px', top: (TY2 - 4) + 'px', width: '240px', height: '8px', borderRadius: '4px', background: 'rgba(255,255,255,.34)', transformOrigin: 'left center' }); tl2.appendChild(lineM);
+const nodes2 = NX.map(x => { const n = document.createElement('div'); n.className = 'node'; n.style.left = (x - 30) + 'px'; n.style.top = (TY2 - 30) + 'px'; tl2.appendChild(n); return n; });
+[['ANC visits', 600], ['PNC', 1080], ['KEPI immunisations', 1440]].forEach(([t, x]) => { const g = document.createElement('div'); g.className = 'glab'; g.textContent = t; g.style.left = x + 'px'; g.style.top = (TY2 + 62) + 'px'; tl2.appendChild(g); });
+const crackSvg = svgEl('svg', { viewBox: '0 0 1920 1080', width: 1920, height: 1080, style: 'position:absolute;left:0;top:0;overflow:visible' }, tl2);
+const crack = svgEl('path', { d: `M872 ${TY2} L893 ${TY2-30} L918 ${TY2+30} L944 ${TY2-34} L976 ${TY2+34} L1002 ${TY2-30} L1026 ${TY2+28} L1048 ${TY2}`, stroke: '#F97316', 'stroke-width': 8, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1 }, crackSvg);
+const bang = document.createElement('div'); bang.className = 'bang'; bang.innerHTML = '<span>!</span>'; tl2.appendChild(bang);
+
+/* ============ build: S3 bridge ============ */
+const br = $('#bridge'), D = 620, C = 80, X0 = 420, X1 = 1500, XM = 960;
+const archY = x => { const t = (x - X0) / (X1 - X0); return D - 2 * (D - C) * t * (1 - t); };
+const bdefs = svgEl('defs', {}, br);
+const lg = svgEl('linearGradient', { id: 'ag', x1: 0, y1: 0, x2: 1, y2: 0 }, bdefs);
+svgEl('stop', { offset: 0, 'stop-color': '#F97316' }, lg); svgEl('stop', { offset: .5, 'stop-color': '#FB923C' }, lg); svgEl('stop', { offset: 1, 'stop-color': '#F97316' }, lg);
+const bankL = svgEl('rect', { x: 300, y: D - 6, width: 150, height: 90, rx: 26, fill: '#122451' }, br);
+const bankR = svgEl('rect', { x: 1470, y: D - 6, width: 150, height: 90, rx: 26, fill: '#122451' }, br);
+const hangers = [];
+for (let x = 500; x <= 1420; x += 60) { if (Math.abs(x - XM) < 100) continue; hangers.push(svgEl('line', { x1: x, y1: archY(x), x2: x, y2: D, stroke: '#1A56DB', 'stroke-width': 4, 'stroke-linecap': 'round', opacity: .5 }, br)); }
+const deck = svgEl('line', { x1: X0 - 20, y1: D, x2: X1 + 20, y2: D, stroke: '#122451', 'stroke-width': 16, 'stroke-linecap': 'round', pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1 }, br);
+const arch = svgEl('path', { d: `M${X0} ${D} Q${XM} ${C} ${X1} ${D}`, fill: 'none', stroke: 'url(#ag)', 'stroke-width': 18, 'stroke-linecap': 'round', pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1, style: 'filter:drop-shadow(0 8px 14px rgba(249,115,22,.35))' }, br);
+
+/* ============ build: S5 timeline (bridged) ============ */
+const TY5 = 548, tl5 = $('#tl5');
+const base5 = document.createElement('div');
+Object.assign(base5.style, { position: 'absolute', left: '360px', top: (TY5 - 4) + 'px', width: '1200px', height: '8px', borderRadius: '4px', background: '#D5DEEC', opacity: 0 }); tl5.appendChild(base5);
+const prog5 = document.createElement('div');
+Object.assign(prog5.style, { position: 'absolute', left: '360px', top: (TY5 - 4) + 'px', width: '1200px', height: '8px', borderRadius: '4px', background: 'linear-gradient(90deg,#3B7BFF,#1A56DB)', transformOrigin: 'left center' }); tl5.appendChild(prog5);
+const arch5svg = svgEl('svg', { viewBox: '0 0 1920 1080', width: 1920, height: 1080, style: 'position:absolute;left:0;top:0;overflow:visible' }, tl5);
+const arch5 = svgEl('path', { d: `M840 ${TY5} Q960 ${TY5 - 150} 1080 ${TY5}`, fill: 'none', stroke: '#F97316', 'stroke-width': 11, 'stroke-linecap': 'round', pathLength: 1, 'stroke-dasharray': 1, 'stroke-dashoffset': 1, style: 'filter:drop-shadow(0 6px 10px rgba(249,115,22,.35))' }, arch5svg);
+const nodes5 = NX.map(x => { const n = document.createElement('div'); n.className = 'node5'; n.style.left = (x - 30) + 'px'; n.style.top = (TY5 - 30) + 'px'; n.innerHTML = '<div class="f">' + CHECK + '</div>'; tl5.appendChild(n); return n; });
+[['ANC', 600], ['PNC', 1080], ['KEPI', 1440]].forEach(([t, x]) => { const g = document.createElement('div'); g.className = 'glab5'; g.textContent = t; g.style.left = x + 'px'; g.style.top = (TY5 + 52) + 'px'; tl5.appendChild(g); });
+// progress line scaled behind nodes
+prog5.style.transform = 'scaleX(0)';
+
+/* ============ build: S5 report tiles ============ */
+const tiles = [
+  ['Returning patients', 'M4 78 C46 74 66 66 98 62 S150 54 184 40 S256 30 318 10'],
+  ['ANC completion',     'M4 74 C38 70 70 70 104 58 S160 56 196 38 S262 22 318 12'],
+  ['Immunisations on time','M4 80 C40 72 62 62 96 60 S156 42 192 36 S262 26 318 8']
+];
+tiles.forEach(([lab, d], i) => {
+  const t = document.createElement('div'); t.className = 'tile';
+  t.innerHTML = `<div class="lb"><span>${lab}</span><span class="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div>
+  <svg class="sp" viewBox="0 0 322 96"><defs><linearGradient id="sg${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A56DB" stop-opacity=".22"/><stop offset="1" stop-color="#1A56DB" stop-opacity="0"/></linearGradient></defs>
+  <path class="ar" d="${d} L318 96 L4 96Z" fill="url(#sg${i})" opacity="0"/>
+  <path class="ln" d="${d}" fill="none" stroke="#1A56DB" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <circle class="dt" cx="${d.split(' ').slice(-2).join(' ').split(' ')[0]}" cy="${d.split(' ').slice(-1)[0]}" r="9" fill="#F97316" stroke="#fff" stroke-width="3.5" opacity="0"/></svg>`;
+  $('#tiles').appendChild(t);
+});
+
+/* ============ MASTER TIMELINE (seconds) ============ */
+const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
+
+// ambient navy glow drift
+tl.to('#blobA', { x: -90, y: 60, duration: 6, ease: 'none' }, 0).to('#blobB', { x: 80, y: -50, duration: 6, ease: 'none' }, 0);
+
+/* ---- S1 : 0.0 – 3.0 the leak ---- */
+tl.fromTo(people, { opacity: 0, scale: .5, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: .7, ease: 'back.out(1.7)', stagger: .055 }, .05)
+  .fromTo('#s1a', { yPercent: 115 }, { yPercent: 0, duration: .7, ease: 'expo.out' }, .22)
+  .fromTo('#s1b', { yPercent: 115 }, { yPercent: 0, duration: .7, ease: 'expo.out' }, 1.0)
+  .to(lost.map(L => people[L.id]), { color: '#64748B', opacity: .62, duration: .4, ease: 'power1.inOut', stagger: .07 }, 1.3)
+  .fromTo('#chip', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .55, ease: 'power3.out' }, 1.95);
+lost.forEach(L => {
+  tl.to(people[L.id], { x: L.dx, y: L.dy, duration: 1.0, ease: 'power2.in' }, 1.78)
+    .to(L.mask, { strokeDashoffset: 0, duration: 1.0, ease: 'power2.in' }, 1.78);
+});
+// S1 exit
+tl.to(['#s1a', '#s1b'], { yPercent: -115, duration: .35, ease: 'power3.in' }, 2.7)
+  .to('#chip', { opacity: 0, y: -16, duration: .3, ease: 'power2.in' }, 2.7)
+  .to(people.filter((p, i) => !lost.some(L => L.id === i)), { opacity: 0, y: -30, duration: .3, ease: 'power2.in', stagger: .02 }, 2.62)
+  .to('#trails', { opacity: 0, duration: .3 }, 2.7);
+
+/* ---- S2 : 3.0 – 6.0 the cost ---- */
+tl.fromTo('#cal', { opacity: 0, y: 70, scale: .95 }, { opacity: 1, y: 0, scale: 1, duration: .6, ease: 'power3.out' }, 2.85)
+  .fromTo(slots.map(s => s.querySelector('.fill')), { opacity: 0, scale: .78 }, { opacity: 1, scale: 1, duration: .35, ease: 'back.out(1.6)', stagger: { each: .024, from: 'start' } }, 3.1)
+  .fromTo('#beat1 span', { yPercent: 115 }, { yPercent: 0, duration: .55, ease: 'expo.out' }, 3.08)
+  .to('#beat1 span', { yPercent: -115, duration: .3, ease: 'power3.in' }, 3.88)
+  .fromTo('#beat2 span', { yPercent: 115 }, { yPercent: 0, duration: .55, ease: 'expo.out' }, 3.98)
+  .to('#beat2 span', { yPercent: -115, duration: .3, ease: 'power3.in' }, 4.88)
+  .fromTo('#beat3 span', { yPercent: 115 }, { yPercent: 0, duration: .6, ease: 'expo.out' }, 4.98);
+const MISS_T = 3.5;
+missed.forEach((idx, k) => {
+  const s = slots[idx], t = MISS_T + k * .1;
+  tl.to(s.querySelector('.flash'), { opacity: .9, duration: .12, ease: 'power1.out' }, t)
+    .to(s.querySelector('.flash'), { opacity: 0, duration: .25, ease: 'power1.in' }, t + .12)
+    .to(s.querySelector('.fill'), { opacity: 0, scale: .94, duration: .25 }, t + .12)
+    .to(s.querySelector('.ring'), { opacity: 1, duration: .25 }, t + .12)
+    .fromTo(s.querySelector('.x'), { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .3, ease: 'back.out(2.4)' }, t + .12);
+});
+// calendar → broken timeline (5.0–5.6)
+tl.to('#cal', { opacity: 0, y: -30, scale: .97, duration: .28, ease: 'power2.in' }, 4.84)
+  .set('#tl2', { opacity: 1 }, 5.06)
+  .fromTo([lineA, lineM, lineB], { scaleX: 0 }, { scaleX: 1, duration: .5, ease: 'power2.out', stagger: .08 }, 5.06)
+  .fromTo(nodes2, { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .4, ease: 'back.out(2)', stagger: .06 }, 5.08)
+  .fromTo('.glab', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .4, stagger: .06 }, 5.3)
+  // the break
+  .to(lineM, { opacity: 0, duration: .12 }, 5.5)
+  .to(crack, { strokeDashoffset: 0, duration: .3, ease: 'power2.out' }, 5.5)
+  .to([nodes2[3], nodes2[4], nodes2[5], lineB], { opacity: .3, duration: .3 }, 5.52)
+  .to('.glab:nth-of-type(n+2)', { opacity: .35, duration: .3 }, 5.52)
+  .fromTo(bang, { opacity: 0, scale: .2 }, { opacity: 1, scale: 1, duration: .35, ease: 'back.out(3)' }, 5.56)
+  .to(bang, { scale: 1.12, duration: .22, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 5.9);
+// S2 exit + iris to light
+tl.to(['#tl2', '#beat3'], { opacity: 0, duration: .3, ease: 'power2.in' }, 5.82)
+  .to('#bgLight', { clipPath: 'circle(1400px at 960px 360px)', duration: .8, ease: 'power3.inOut' }, 5.76);
+
+/* ---- S3 : 6.0 – 9.0 the bridge ---- */
+tl.to(bankL, { duration: .01 }, 6.0)
+  .fromTo([bankL, bankR], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .5, ease: 'power3.out' }, 6.15)
+  .to(deck, { strokeDashoffset: 0, duration: .55, ease: 'power2.inOut' }, 6.3)
+  .to(arch, { strokeDashoffset: 0, duration: .75, ease: 'power2.inOut' }, 6.45)
+  .fromTo(hangers, { opacity: 0, scaleY: 0, transformOrigin: '50% 100%' }, { opacity: .5, scaleY: 1, duration: .3, ease: 'power2.out', stagger: { each: .025, from: 'center' } }, 6.85)
+  .fromTo('#logo3', { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .6, ease: 'back.out(1.8)' }, 7.1)
+  .fromTo('#ring3', { opacity: .9, scale: 1 }, { opacity: 0, scale: 2.4, duration: .8, ease: 'power2.out', immediateRender: false }, 7.15)
+  .fromTo('#wm3 span', { yPercent: 115 }, { yPercent: 0, duration: .7, ease: 'expo.out' }, 7.3)
+  .fromTo('#sub3', { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .55 }, 7.62);
+// S3 exit: logo flies to brand bug, rest clears
+const BUG = { x: 122 - 960, y: 94 - 350, s: 64 / 210 };
+tl.to([bankL, bankR, deck, arch], { opacity: 0, duration: .35, ease: 'power2.in' }, 8.55)
+  .to(hangers, { opacity: 0, duration: .25 }, 8.5)
+  .to('#wm3 span', { yPercent: -115, duration: .35, ease: 'power3.in' }, 8.55)
+  .to('#sub3', { opacity: 0, y: -14, duration: .3, ease: 'power2.in' }, 8.55)
+  .to('#logo3', { x: BUG.x, y: BUG.y, scale: BUG.s, duration: .6, ease: 'power3.inOut' }, 8.5)
+  .to('#bugText', { opacity: 1, duration: .4 }, 9.05);
+
+/* ---- S4 : 9.0 – 12.5 how it works ---- */
+tl.fromTo('#phone', { opacity: 0, x: 760, rotation: 7 }, { opacity: 1, x: 0, rotation: 0, duration: .8, ease: 'expo.out' }, 8.95)
+  .fromTo('#s4h .mask:nth-child(1) > span', { yPercent: 115 }, { yPercent: 0, duration: .65, ease: 'expo.out' }, 9.1)
+  .fromTo('#s4h .mask:nth-child(2) > span', { yPercent: 115 }, { yPercent: 0, duration: .65, ease: 'expo.out' }, 9.25)
+  .fromTo('#lang', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .5 }, 9.6)
+  .fromTo('#sub4', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .5 }, 9.85)
+  // chat
+  .fromTo('#typing', { opacity: 0, scale: .6, transformOrigin: '0 0' }, { opacity: 1, scale: 1, duration: .3, ease: 'back.out(2)' }, 9.55)
+  .to('#typing i', { y: -6, duration: .18, yoyo: true, repeat: 3, stagger: .08, ease: 'sine.inOut' }, 9.6)
+  .to('#typing', { opacity: 0, scale: .8, duration: .15 }, 10.0)
+  .fromTo('#b1', { opacity: 0, scale: .6, y: 14, transformOrigin: '0 0' }, { opacity: 1, scale: 1, y: 0, duration: .4, ease: 'back.out(1.8)' }, 10.0)
+  // language flip
+  .to('.stack .en', { opacity: 0, y: -12, duration: .25, ease: 'power2.in' }, 10.75)
+  .fromTo('.stack .sw', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .3, ease: 'power2.out' }, 10.9)
+  .to('#lang .thumb', { x: 190, width: 214, duration: .4, ease: 'power3.inOut' }, 10.72)
+  .to('#langEN', { color: '#64748B', duration: .2 }, 10.8).to('#langSW', { color: '#fff', duration: .2 }, 10.8)
+  // steps
+  .fromTo('.step', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .5, stagger: .42 }, 10.15)
+  // reply + confirm
+  .fromTo('#b2', { opacity: 0, scale: .6, y: 14, transformOrigin: '100% 0' }, { opacity: 1, scale: 1, y: 0, duration: .4, ease: 'back.out(1.8)' }, 11.45)
+  .to('#tick', { color: '#53BDEB', duration: .25 }, 11.85)
+  .fromTo('#toast', { opacity: 0, scale: .6, x: 30 }, { opacity: 1, scale: 1, x: 0, duration: .45, ease: 'back.out(2)' }, 11.8);
+// S4 exit
+tl.to(['#s4h .mask > span'], { yPercent: -135, duration: .35, ease: 'power3.in', stagger: .05 }, 12.3)
+  .to(['#lang', '#sub4', '.step'], { opacity: 0, y: -20, duration: .3, ease: 'power2.in', stagger: .03 }, 12.28)
+  .to('#toast', { opacity: 0, y: -16, duration: .25 }, 12.3)
+  .to('#phone', { x: 520, rotation: 5, opacity: 0, duration: .5, ease: 'power3.in' }, 12.3)
+  .set('#s4h', { opacity: 0 }, 12.72);
+
+/* ---- S5 : 12.5 – 15.5 the impact ---- */
+const nodeTimes = NX.map(x => 12.98 + (x - 360) / 1200 * 0.95);
+tl.fromTo('#s5h .mask:nth-child(1) > span', { yPercent: 115 }, { yPercent: 0, duration: .65, ease: 'expo.out' }, 12.55)
+  .fromTo('#s5h .mask:nth-child(2) > span', { yPercent: 115 }, { yPercent: 0, duration: .65, ease: 'expo.out' }, 12.72)
+  .fromTo(base5, { opacity: 0, scaleX: .2 }, { opacity: 1, scaleX: 1, duration: .5, ease: 'power2.out' }, 12.7)
+  .fromTo(nodes5, { opacity: 0, scale: .3 }, { opacity: 1, scale: 1, duration: .35, ease: 'back.out(2)', stagger: .05 }, 12.74)
+  .fromTo('.glab5', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .4, stagger: .06 }, 12.9)
+  .to(prog5, { scaleX: 1, duration: .95, ease: 'none' }, 12.98)
+  .to(arch5, { strokeDashoffset: 0, duration: .32, ease: 'power2.inOut' }, nodeTimes[2] + .02);
+nodes5.forEach((n, i) => {
+  tl.fromTo(n.querySelector('.f'), { opacity: 0, scale: .4 }, { opacity: 1, scale: 1, duration: .32, ease: 'back.out(2.4)' }, nodeTimes[i])
+    .to(n, { scale: 1.12, duration: .12, yoyo: true, repeat: 1, ease: 'sine.inOut' }, nodeTimes[i]);
+});
+tl.fromTo('#card', { opacity: 0, y: 90 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, 13.7);
+$$('.tile').forEach((t, i) => {
+  tl.fromTo(t, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .45, ease: 'power3.out' }, 13.95 + i * .12)
+    .to(t.querySelector('.ln'), { strokeDashoffset: 0, duration: .8, ease: 'power2.inOut' }, 14.1 + i * .12)
+    .to(t.querySelector('.ar'), { opacity: 1, duration: .5 }, 14.5 + i * .12)
+    .fromTo(t.querySelector('.dt'), { opacity: 0, scale: .2, transformOrigin: 'center' }, { opacity: 1, scale: 1, duration: .3, ease: 'back.out(3)' }, 14.85 + i * .12);
+});
+// S5 exit → navy wipe
+tl.to(['#s5h .mask > span'], { yPercent: -115, duration: .3, ease: 'power3.in' }, 15.12)
+  .to(['#tl5', '#card'], { opacity: 0, y: -30, duration: .32, ease: 'power2.in' }, 15.12)
+  .to(['#logo3', '#bugText'], { opacity: 0, duration: .3 }, 15.15)
+  .to('#bgNavy2', { clipPath: 'circle(2100px at 960px 830px)', duration: .8, ease: 'power3.inOut' }, 15.1);
+
+/* ---- S6 : 15.5 – 18.0 call to action ---- */
+tl.set('#s6', { opacity: 1 }, 15.2)
+  .fromTo('#lock6', { opacity: 0, y: -22 }, { opacity: 1, y: 0, duration: .55 }, 15.62)
+  .fromTo('#h6 .mask:nth-child(1) > span', { yPercent: 115 }, { yPercent: 0, duration: .7, ease: 'expo.out' }, 15.68)
+  .fromTo('#h6 .mask:nth-child(2) > span', { yPercent: 115 }, { yPercent: 0, duration: .7, ease: 'expo.out' }, 15.84)
+  .fromTo('#btn', { opacity: 0, y: 40, scale: .92 }, { opacity: 1, y: 0, scale: 1, duration: .6, ease: 'back.out(1.5)' }, 16.1)
+  .fromTo('#url', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .5 }, 16.4)
+  .to('#url span', { '--ul': 1, duration: .55, ease: 'power2.inOut' }, 16.55)
+  .fromTo('#trust', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .5 }, 16.85)
+  // cursor + click
+  .fromTo('#cursor', { opacity: 0, x: 1330, y: 930 }, { opacity: 1, x: 1130, y: 700, duration: .5, ease: 'power3.out' }, 16.15)
+  .to('#cursor', { scale: .82, duration: .08, ease: 'power2.in', transformOrigin: '8px 4px' }, 16.62)
+  .to('#btn', { scale: .965, duration: .08, ease: 'power2.in' }, 16.62)
+  .to('#cursor', { scale: 1, duration: .18, ease: 'back.out(3)' }, 16.7)
+  .to('#btn', { scale: 1, duration: .25, ease: 'back.out(3)' }, 16.7)
+  .fromTo('#ripple', { opacity: .9, scale: 1 }, { opacity: 0, scale: 1.22, duration: .7, ease: 'power2.out', immediateRender: false }, 16.66)
+  .to('#cursor', { opacity: 0, x: 1190, y: 760, duration: .35, ease: 'power2.in' }, 17.25)
+  // life on the end card
+  .to('#h6', { scale: 1.015, duration: 2.4, ease: 'none', transformOrigin: '50% 50%' }, 15.7);
+
+window.__DURATION = 18;
+window.seek = t => { tl.time(Math.min(t, 17.999), false); };
+window.__tl = tl;
+document.fonts.ready.then(() => { window.seek(0); window.__ready = true; });
+})();
+</script>
+</body>
+</html>

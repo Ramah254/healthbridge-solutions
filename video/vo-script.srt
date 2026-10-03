@@ -1,0 +1,31 @@
+1
+00:00:00,300 --> 00:00:02,800
+Patients walk out… and never come back.
+
+2
+00:00:03,100 --> 00:00:03,950
+Missed visits.
+
+3
+00:00:04,000 --> 00:00:04,900
+Empty slots.
+
+4
+00:00:05,000 --> 00:00:05,900
+Mothers off schedule.
+
+5
+00:00:06,300 --> 00:00:08,600
+HealthBridge brings them back.
+
+6
+00:00:09,200 --> 00:00:12,200
+Automatic WhatsApp follow-up — in English or Kiswahili.
+
+7
+00:00:12,650 --> 00:00:15,050
+Every mother on schedule. Every baby on time.
+
+8
+00:00:15,700 --> 00:00:17,700
+Patients who come back. Book your demo.
