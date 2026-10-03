@@ -110,10 +110,16 @@ im = cues['impact']
 def seg_rms(t0, t1): s = mono[int(t0 * sr):int(t1 * sr)]; return db(np.sqrt((s ** 2).mean()))
 R['impact_release_db'] = round(seg_rms(im, im + 1.5) - seg_rms(im - 1.5, im - .1), 2)
 
-# --- key estimate (Krumhansl-Schmuckler on chroma)
-sel = (f2 >= 80) & (f2 <= 2000); pc = (np.round(12 * np.log2(f2[sel] / 440.0)) + 9).astype(int) % 12
-pw = (np.abs(Z[sel]) ** 2).sum(1); chroma = np.zeros(12)
-for k in range(12): chroma[k] = pw[pc == k].sum()
+# --- key estimate (Krumhansl-Schmuckler on high-resolution chroma)
+# A 2048-point STFT has 23 Hz bins, which smears every pitched note below ~330 Hz by up to a semitone (G3 -> F#3).
+# Chroma therefore uses its own 16384-point STFT (2.9 Hz bins), restricted to 65-2000 Hz.
+fK, tK, ZK = signal.stft(mono, sr, nperseg=16384, noverlap=16384 - 8192)
+sel = (fK >= 65) & (fK <= 2000); pc = (np.round(12 * np.log2(fK[sel] / 440.0)) + 9).astype(int) % 12
+def chroma_of(cols):
+    pw = (np.abs(ZK[sel][:, cols]) ** 2).sum(1); ch = np.zeros(12)
+    for k in range(12): ch[k] = pw[pc == k].sum()
+    return ch
+chroma = chroma_of(np.ones(len(tK), bool))
 maj = np.array([6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88]); mnr = np.array([6.33, 2.68, 3.52, 5.38, 2.60, 3.53, 2.54, 4.75, 3.98, 2.69, 3.34, 3.17])
 names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 sc = []
@@ -122,10 +128,8 @@ for k in range(12):
     sc.append((float(np.corrcoef(chroma, np.roll(mnr, k))[0, 1]), names[k] + ' minor'))
 sc.sort(reverse=True); R['key_estimates'] = [{'key': k, 'corr': round(c, 3)} for c, k in sc[:3]]
 if a.key: R['key_matches_declared'] = any(k['key'].lower() == a.key.lower() for k in R['key_estimates'][:2])
-# whole-file chroma only tells the home key; also report the chroma of the final 3 s (should sit on the tonic chord)
-fin = (t2 >= (N / sr - 3.5)) & (t2 <= (N / sr - .5)); pwf = (np.abs(Z[sel][:, fin]) ** 2).sum(1); cf = np.zeros(12)
-for k in range(12): cf[k] = pwf[pc == k].sum()
-R['final_chord_top_pitch_classes'] = [names[i] for i in np.argsort(cf)[::-1][:3]]
+# chroma of the final chord (last 3.5 s .. last 0.5 s) -- should be the tonic triad
+R['final_chord_top_pitch_classes'] = [names[i] for i in np.argsort(chroma_of((tK >= (N / sr - 3.5)) & (tK <= (N / sr - .5))))[::-1][:3]]
 
 if a.spec:
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', a.wav, '-lavfi', 'showspectrumpic=s=1800x420:legend=1:scale=log:fscale=log', a.spec])

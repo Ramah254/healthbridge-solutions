@@ -1,6 +1,6 @@
 # HealthBridge Solutions — motion videos
 
-Two cuts for healthbridgesolutions.net. Both 1920×1080, 30 fps, H.264 + AAC, music + sound effects (no voiceover yet).
+Two cuts for healthbridgesolutions.net. Both 1920×1080, 30 fps, H.264 + AAC, with an original score + sound effects (no voiceover yet).
 
 | File | Length | Use |
 |---|---|---|
@@ -20,22 +20,42 @@ Two cuts for healthbridgesolutions.net. Both 1920×1080, 30 fps, H.264 + AAC, mu
 
 Pacing rule used: every text block stays on screen long enough to read (≈ 3–4 words/second), transitions are 0.5–1.0 s, and nothing leaves while its neighbour is still arriving.
 
+## Music
+An original, procedurally composed score ("Bridge", `music/afro.py`): warm Afro-acoustic — kalimba/mbira theme, nylon guitar,
+round bass, soft congas/shaker — in G major at 102 BPM. A four-bar "bridge" motif (a rising fifth that steps home) is hinted
+in a darker form during the problem scenes, stated in full at the reveal (the light wipe + logo), developed through
+*how it works*, lifted for the mothers-and-babies scene, and resolves on a G major chord at the button click.
+No samples, no licensing: everything is synthesised by the script and is byte-reproducible.
+
+How it was chosen: three composers wrote competing scores (`afro.py`, `piano.py`, `pulse.py`), each audited by an independent
+technical and musical verifier, repaired where needed, and ranked by a judge on measurements (`music/analyze.py`: loudness, spectral
+balance, intended energy arc, tempo/key, alignment of the reveal and other cues, clicks, voiceover headroom). **Nobody in that pipeline can
+listen** — please audition it and tell me if the mood is off. Alternates: `piano.py` (calm piano & strings; its repair was not independently
+re-audited), `pulse.py` (modern tech; ranked last, not recommended).
+
+Mix: score + the SFX stems (SFX trimmed 9 dB before the reveal so the score carries the tension), constant-gain to ≈ -15.5 LUFS and a
+peak limiter (no dynamic loudnorm, so the quiet-to-loud arc survives). The picture is stream-copied, never re-encoded.
+
 ## Voiceover
 `vo-script-explainer.srt` (≈100 words, timed to the explainer) and `vo-script.srt` (18 s cut).
-`audio/explainer-music-stem.m4a` / `explainer-sfx-stem.m4a` (and `music-stem` / `sfx-stem` for the 18 s cut) let a recorded voice be mixed over the music.
+Stems for mixing a recorded voice: `audio/explainer-music-stem.m4a` / `audio/music-stem.m4a` (score), `audio/explainer-sfx-stem.m4a` /
+`audio/sfx-stem.m4a` (effects), and `audio/explainer-music-volite-stem.m4a` / `audio/music-volite-stem.m4a` — the same score with a sparser guitar
+and gentler drum in the last two sections, which leaves more room for the voice (the full score is densest under the CTA line).
 
 ## Rebuild
 ```bash
 # needs: node 18+, playwright (chromium), ffmpeg, python3 + numpy + scipy
 cd video
-# explainer
+# explainer picture
 SRC=long.html node render.js frames 30 4        # -> frames/ (duration read from the page)
-python3 audio_long.py                           # -> audio/long_*.wav (scene times read from src/long.html)
-ffmpeg -framerate 30 -i frames/%04d.png -i audio/long_mix.wav \
-  -af "loudnorm=I=-14:TP=-1.5:LRA=9,volume=-1.0dB" \
-  -c:v libx264 -preset slow -crf 15 -tune animation -pix_fmt yuv420p \
-  -c:a aac -b:a 192k -movflags +faststart -t 57.6 out.mp4
-# 18 s cut: node render.js frames 30 4 && python3 audio.py  (uses src/index.html)
+ffmpeg -framerate 30 -i frames/%04d.png -c:v libx264 -preset slow -crf 15 -tune animation -pix_fmt yuv420p -movflags +faststart -t 57.6 picture.mp4
+# then add audio with music/finalize.py (see below), or use the SFX-only bed: python3 audio_long.py
+# 18 s cut: node render.js frames 30 4  (uses src/index.html; picture only)
+# music (both videos):
+python3 music/afro.py                 # -> music/out/afro_{long,short}_music.wav   (add --vo-lite for the voiceover-friendly variant)
+python3 music/finalize.py afro        # mix with SFX stems + re-attach audio to the finished MP4s (no re-render)
+python3 music/analyze.py music/out/afro_long_music.wav --video long --bpm 102.1 --key "G major"   # objective report
+# the previous procedural bed: audio.py / audio_long.py (still in the repo, now superseded)
 # preview a frame: [SRC=long.html] node render.js still 12.5
 ```
 Each video is one seekable GSAP timeline (`src/long.html`, `src/index.html`); fonts are Plus Jakarta Sans + Inter; brand colours come from `styles.css`.

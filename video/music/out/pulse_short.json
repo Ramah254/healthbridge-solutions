@@ -1,0 +1,165 @@
+{
+ "file": "pulse_short_music.wav",
+ "sr": 48000,
+ "channels": 2,
+ "duration_s": 18.0,
+ "expected_duration_s": 18.0,
+ "duration_ok": true,
+ "peak_dbfs": -2.73,
+ "clipped_samples": 0,
+ "nan_or_inf": false,
+ "dc_offset": 0.0,
+ "lufs_integrated": -19.2,
+ "lra_lu": 12.2,
+ "true_peak_dbfs": -2.7,
+ "sections": [
+  {
+   "id": "A",
+   "rms_dbfs": -37.63,
+   "target_energy": 0.25
+  },
+  {
+   "id": "B",
+   "rms_dbfs": -27.9,
+   "target_energy": 0.45
+  },
+  {
+   "id": "C",
+   "rms_dbfs": -21.65,
+   "target_energy": 0.75
+  },
+  {
+   "id": "D",
+   "rms_dbfs": -25.24,
+   "target_energy": 0.55
+  },
+  {
+   "id": "E",
+   "rms_dbfs": -20.22,
+   "target_energy": 0.8
+  },
+  {
+   "id": "G",
+   "rms_dbfs": -18.75,
+   "target_energy": 0.85
+  }
+ ],
+ "arc_spearman": 1.0,
+ "dynamic_range_db_between_sections": 18.88,
+ "band_share": {
+  "sub_20_150": 0.252,
+  "low_150_800": 0.594,
+  "mid_800_4k": 0.15,
+  "high_4k_16k": 0.004
+ },
+ "voice_band_share_300_3400": 0.267,
+ "spectral_centroid_hz": 427.0,
+ "harshness_share_2k_5k": 0.0271,
+ "stereo_lr_corr": 0.782,
+ "side_to_mid_db": -9.08,
+ "click_events": 0,
+ "click_times_s": [],
+ "final_sample_abs": 0.0,
+ "end_fade_db": -9.22,
+ "tempo_candidates_bpm": [
+  [
+   110.3,
+   0.645
+  ],
+  [
+   74.0,
+   0.556
+  ],
+  [
+   114.8,
+   0.204
+  ]
+ ],
+ "tempo_matches_declared": true,
+ "onsets_on_grid_pct": 78.4,
+ "accent_hits": [
+  {
+   "t": 1.0,
+   "major": false,
+   "label": "headline 2 lands",
+   "onset_ratio": 0.9
+  },
+  {
+   "t": 3.08,
+   "major": false,
+   "label": "beat 1",
+   "onset_ratio": 3.3
+  },
+  {
+   "t": 4.98,
+   "major": false,
+   "label": "beat 3",
+   "onset_ratio": 5.1
+  },
+  {
+   "t": 5.5,
+   "major": false,
+   "label": "timeline cracks",
+   "onset_ratio": 6.8
+  },
+  {
+   "t": 6.0,
+   "major": true,
+   "label": "IMPACT: resolution",
+   "onset_ratio": 16.9
+  },
+  {
+   "t": 7.1,
+   "major": true,
+   "label": "logo lands",
+   "onset_ratio": 25.5
+  },
+  {
+   "t": 9.0,
+   "major": true,
+   "label": "how-it-works begins",
+   "onset_ratio": 14.4
+  },
+  {
+   "t": 12.5,
+   "major": true,
+   "label": "impact scene begins",
+   "onset_ratio": 14.9
+  },
+  {
+   "t": 15.5,
+   "major": true,
+   "label": "CTA begins",
+   "onset_ratio": 21.4
+  },
+  {
+   "t": 16.62,
+   "major": true,
+   "label": "button click",
+   "onset_ratio": 14.9
+  }
+ ],
+ "major_accents_with_onset_pct": 100.0,
+ "impact_release_db": 5.37,
+ "key_estimates": [
+  {
+   "key": "A# minor",
+   "corr": 0.727
+  },
+  {
+   "key": "A# major",
+   "corr": 0.617
+  },
+  {
+   "key": "D# major",
+   "corr": 0.35
+  }
+ ],
+ "key_matches_declared": true,
+ "final_chord_top_pitch_classes": [
+  "A#",
+  "G#",
+  "C"
+ ],
+ "spectrogram_png": "out/pulse_short.png"
+}
