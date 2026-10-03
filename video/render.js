@@ -1,11 +1,11 @@
 // Deterministic frame renderer: seeks the GSAP timeline in src/index.html and screenshots each frame.
-//   node render.js still <t1> <t2> ...      -> stills/<t>.png  (for review)
-//   node render.js frames [fps=30] [workers=4] -> frames/%04d.png
+//   [SRC=long.html] node render.js still <t1> <t2> ...      -> stills/<t>.png  (for review)
+//   [SRC=long.html] node render.js frames [fps=30] [workers=4] -> frames/%04d.png   (duration read from the page)
 const path = require('path');
 const fs = require('fs');
 const { chromium } = require('playwright');
 
-const SRC = 'file://' + path.resolve(__dirname, 'src/index.html');
+const SRC = 'file://' + path.resolve(__dirname, 'src', process.env.SRC || 'index.html');
 const [mode, ...args] = process.argv.slice(2);
 
 async function open(browser) {
@@ -32,7 +32,8 @@ async function open(browser) {
     await browser.close();
   } else if (mode === 'frames') {
     const fps = Number(args[0] || 30), workers = Number(args[1] || 4);
-    const total = Math.round(18 * fps);
+    const dur = await (async () => { const b = await chromium.launch(launchArgs); const pg = await open(b); const d = await pg.evaluate(() => window.__DURATION); await b.close(); return d; })();
+    const total = Math.round(dur * fps);
     const dir = path.join(__dirname, 'frames');
     fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
     const per = Math.ceil(total / workers);

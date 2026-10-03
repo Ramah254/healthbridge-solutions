@@ -2,3 +2,4 @@ frames/
 stills/
 node_modules/
 audio/*.wav
+__pycache__/
