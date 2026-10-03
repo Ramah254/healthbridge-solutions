@@ -3,3 +3,8 @@ stills/
 node_modules/
 audio/*.wav
 __pycache__/
+
+# generated music renders (reproducible via music/<key>.py)
+music/out/*.wav
+music/out/verify_*/
+music/out/*.png
