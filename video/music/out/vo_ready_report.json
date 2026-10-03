@@ -1,0 +1,14 @@
+{
+ "long": {
+  "bed_lufs": -26.9,
+  "peak_dbfs": -6.53,
+  "voice_band_300_3400_dbfs_in_vo_windows": -36.3,
+  "voice_band_300_3400_dbfs_between_lines": -30.5
+ },
+ "short": {
+  "bed_lufs": -29.3,
+  "peak_dbfs": -13.72,
+  "voice_band_300_3400_dbfs_in_vo_windows": -36.8,
+  "voice_band_300_3400_dbfs_between_lines": -33.4
+ }
+}

@@ -37,10 +37,13 @@ Mix: score + the SFX stems (SFX trimmed 9 dB before the reveal so the score carr
 peak limiter (no dynamic loudnorm, so the quiet-to-loud arc survives). The picture is stream-copied, never re-encoded.
 
 ## Voiceover
-`vo-script-explainer.srt` (≈100 words, timed to the explainer) and `vo-script.srt` (18 s cut).
-Stems for mixing a recorded voice: `audio/explainer-music-stem.m4a` / `audio/music-stem.m4a` (score), `audio/explainer-sfx-stem.m4a` /
-`audio/sfx-stem.m4a` (effects), and `audio/explainer-music-volite-stem.m4a` / `audio/music-volite-stem.m4a` — the same score with a sparser guitar
-and gentler drum in the last two sections, which leaves more room for the voice (the full score is densest under the CTA line).
+Ready for a voice: `healthbridge-solutions-explainer-58s-vo-ready.mp4` / `...-promo-18s-vo-ready.mp4` (music + effects already sit under a voice), the
+cue-timed recording scripts, and an automatic mixer that ducks the music from your recording. **See `voiceover/README.md`.**
+
+    python3 music/add_voiceover.py --video long --lines-dir my_lines/      # or --voice whole_take.wav
+
+Cue sheets: `vo-script-explainer.srt` (≈100 words) and `vo-script.srt` (18 s cut). Stems for a DAW: `audio/explainer-music-stem.m4a` / `audio/music-stem.m4a` (score),
+`audio/*-music-volite-stem.m4a` (sparser score for under a voice), `audio/explainer-sfx-stem.m4a` / `audio/sfx-stem.m4a` (effects).
 
 ## Rebuild
 ```bash
@@ -54,6 +57,7 @@ ffmpeg -framerate 30 -i frames/%04d.png -c:v libx264 -preset slow -crf 15 -tune 
 # music (both videos):
 python3 music/afro.py                 # -> music/out/afro_{long,short}_music.wav   (add --vo-lite for the voiceover-friendly variant)
 python3 music/finalize.py afro        # mix with SFX stems + re-attach audio to the finished MP4s (no re-render)
+python3 music/voiceover_ready.py      # voiceover-ready beds + MP4s + recording scripts (needs music/out/afro_volite_*: run music/afro.py --vo-lite)
 python3 music/analyze.py music/out/afro_long_music.wav --video long --bpm 102.1 --key "G major"   # objective report
 # the previous procedural bed: audio.py / audio_long.py (still in the repo, now superseded)
 # preview a frame: [SRC=long.html] node render.js still 12.5

@@ -8,3 +8,6 @@ __pycache__/
 music/out/*.wav
 music/out/verify_*/
 music/out/*.png
+
+# user-generated voiceover mixes
+*-with-voiceover.mp4
